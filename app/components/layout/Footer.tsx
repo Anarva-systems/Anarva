@@ -1,75 +1,91 @@
+"use client";
+
 import Link from "next/link";
-import { Twitter, Instagram, Linkedin, Github } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Github, Twitter, Linkedin, Instagram } from "lucide-react";
+import Image from "next/image";
+
+type FooterLink = {
+    name: string;
+    href: string;
+    icon?: any;
+};
+
+const FOOTER_NAV: { title: string; links: FooterLink[] }[] = [
+    {
+        title: "Sitemap", links: [
+            { name: "Home", href: "/" },
+            { name: "Services", href: "/services" },
+            { name: "Work", href: "/work" },
+            { name: "Process", href: "/process" },
+        ]
+    },
+    {
+        title: "Company", links: [
+            { name: "About", href: "/about" },
+            { name: "Contact", href: "/contact" },
+        ]
+    },
+    {
+        title: "Socials", links: [
+            { name: "Twitter", href: "#", icon: Twitter },
+            { name: "LinkedIn", href: "#", icon: Linkedin },
+            { name: "Instagram", href: "#", icon: Instagram },
+            { name: "GitHub", href: "#", icon: Github },
+        ]
+    }
+];
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-black pt-20 pb-10 z-10 rounded-t-6xl overflow-y-hidden rounded-t-4xl">
-            <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                    {/* Brand */}
-                    <div className="space-y-6">
-                        <Link href="/" className="text-2xl font-bold tracking-tighter text-white">
-                            Anarva
+        <footer className="relative w-full bg-[var(--obsidian)] overflow-hidden pt-20 border-t border-white/5">
+            {/* Background Texture */}
+            <div className="absolute inset-0 opacity-[0.01] pointer-events-none"
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E")` }}
+            />
+
+            <div className="container mx-auto px-6 max-w-7xl relative z-10">
+                {/* 1. CTA Section */}
+                <div className="flex flex-col md:flex-row justify-between items-start mb-32">
+                    <div className="max-w-2xl">
+                        <h2 className="text-6xl md:text-8xl font-bold text-white tracking-tighter mb-8 leading-[0.9]">
+                            Ready to <br />
+                            <span className="text-zinc-500 italic font-serif">transcend?</span>
+                        </h2>
+                        <Link href="/contact" className="group flex items-center gap-4 text-xl text-white font-medium hover:text-[var(--cyber-cyan)] transition-colors">
+                            <span className="border-b border-white/30 pb-1 group-hover:border-[var(--cyber-cyan)] transition-colors">Start a Project</span>
+                            <ArrowUpRight className="w-5 h-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                         </Link>
-                        <p className="text-zinc-400 text-sm leading-relaxed">
-                            We build industrial-grade digital products for forward-thinking companies.
-                            Turning complex requirements into seamless experiences.
-                        </p>
-                        <div className="flex gap-4 text-zinc-400">
-                            <a href="#" className="hover:text-white transition-colors"><Twitter size={20} /></a>
-                            <a href="#" className="hover:text-white transition-colors"><Instagram size={20} /></a>
-                            <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
-                            <a href="#" className="hover:text-white transition-colors"><Github size={20} /></a>
-                        </div>
-                    </div>
-
-                    {/* Quick Links */}
-                    <div>
-                        <h3 className="text-white font-medium mb-6">Company</h3>
-                        <ul className="space-y-4 text-sm text-zinc-400">
-                            <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-                            <li><Link href="/projects" className="hover:text-white transition-colors">Our Work</Link></li>
-                            <li><Link href="/process" className="hover:text-white transition-colors">The Process</Link></li>
-                            <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Services */}
-                    <div>
-                        <h3 className="text-white font-medium mb-6">Services</h3>
-                        <ul className="space-y-4 text-sm text-zinc-400">
-                            <li><Link href="/services" className="hover:text-white transition-colors">Web Design</Link></li>
-                            <li><Link href="/services" className="hover:text-white transition-colors">Development</Link></li>
-                            <li><Link href="/services" className="hover:text-white transition-colors">UI/UX Design</Link></li>
-                            <li><Link href="/services" className="hover:text-white transition-colors">Support & Scaling</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Newsletter */}
-                    <div>
-                        <h3 className="text-white font-medium mb-6">Stay Updated</h3>
-                        <p className="text-zinc-400 text-sm mb-4">
-                            Get the latest insights on web tech and design.
-                        </p>
-                        <form className="flex gap-2">
-                            <input
-                                type="email"
-                                placeholder="Enter email"
-                                className="bg-zinc-900 border border-zinc-800 rounded-md px-4 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 w-full"
-                            />
-                            <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
-                                Join
-                            </button>
-                        </form>
                     </div>
                 </div>
 
-                <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-zinc-500">
-                    <p>© 2026 Anarva Design Studio. All rights reserved.</p>
-                    <div className="flex gap-8 mt-4 md:mt-0">
-                        <Link href="#" className="hover:text-zinc-300">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-zinc-300">Terms of Service</Link>
+                {/* 2. Navigation Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+                    <div className="md:col-span-1 space-y-8">
+                        <div className="w-12 h-12">
+                            <Image src="/Logo-dark.png" alt="Logo" width={40} height={40} />
+                        </div>
+                        <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">
+                            Engineering digital reality. <br />
+                            India &bull; <Image src="/globe.svg" alt="Globe" width={20} height={20} />
+                        </p>
                     </div>
+
+                    {FOOTER_NAV.map((section, idx) => (
+                        <div key={idx} className="space-y-6">
+                            <h4 className="text-xs font-mono font-bold text-zinc-500 uppercase tracking-widest">{section.title}</h4>
+                            <ul className="space-y-4">
+                                {section.links.map((link, linkIdx) => (
+                                    <li key={linkIdx}>
+                                        <Link href={link.href} className="text-zinc-400 hover:text-white transition-colors text-sm flex items-center gap-2 group">
+                                            {link.name}
+                                            {link.icon && <link.icon className="w-4 h-4 ml-1 opacity-50 group-hover:opacity-100 transition-opacity" />}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
                 </div>
             </div>
         </footer>

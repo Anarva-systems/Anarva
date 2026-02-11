@@ -1,97 +1,144 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { motion, useSpring, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 export default function CustomCursor() {
-    // 1. Mouse Position (Motion Values for performance)
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    // 2. Smooth Physics (The "Trail/Aura" layer)
-    // stiff/damping tuned for a premium "weighty/fluid" feel
-    const smoothX = useSpring(mouseX, { stiffness: 300, damping: 20, mass: 0.5 });
-    const smoothY = useSpring(mouseY, { stiffness: 300, damping: 20, mass: 0.5 });
+    const springX = useSpring(mouseX, { stiffness: 300, damping: 25 });
+    const springY = useSpring(mouseY, { stiffness: 300, damping: 25 });
 
+    const [velocity, setVelocity] = useState({ x: 0, y: 0 });
     const [isHovering, setIsHovering] = useState(false);
-    const [isPressed, setIsPressed] = useState(false);
 
     useEffect(() => {
-        const manageMouseMove = (e: MouseEvent) => {
-            const { clientX, clientY } = e;
-            mouseX.set(clientX);
-            mouseY.set(clientY);
+        let prevX = 0;
+        let prevY = 0;
+        let prevTime = Date.now();
+
+        const updateMousePosition = (e: MouseEvent) => {
+            const currentTime = Date.now();
+            const deltaTime = currentTime - prevTime;
+
+            const deltaX = e.clientX - prevX;
+            const deltaY = e.clientY - prevY;
+
+            // Calculate velocity for trail length
+            const velX = deltaX / (deltaTime || 1);
+            const velY = deltaY / (deltaTime || 1);
+
+            setVelocity({ x: velX, y: velY });
+
+            mouseX.set(e.clientX);
+            mouseY.set(e.clientY);
+
+            prevX = e.clientX;
+            prevY = e.clientY;
+            prevTime = currentTime;
         };
 
-        const manageMouseOver = (e: MouseEvent) => {
+        const handleMouseOver = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
-            // Check for interactive elements
-            if (target.closest('a, button, .magnetic, input, textarea, [role="button"]')) {
-                setIsHovering(true);
-            } else {
-                setIsHovering(false);
-            }
+            setIsHovering(!!target.closest('a, button, [role="button"]'));
         };
 
-        const manageMouseDown = () => setIsPressed(true);
-        const manageMouseUp = () => setIsPressed(false);
-
-        window.addEventListener("mousemove", manageMouseMove);
-        window.addEventListener("mouseover", manageMouseOver);
-        window.addEventListener("mousedown", manageMouseDown);
-        window.addEventListener("mouseup", manageMouseUp);
+        window.addEventListener('mousemove', updateMousePosition);
+        window.addEventListener('mouseover', handleMouseOver);
 
         return () => {
-            window.removeEventListener("mousemove", manageMouseMove);
-            window.removeEventListener("mouseover", manageMouseOver);
-            window.removeEventListener("mousedown", manageMouseDown);
-            window.removeEventListener("mouseup", manageMouseUp);
-        }
+            window.removeEventListener('mousemove', updateMousePosition);
+            window.removeEventListener('mouseover', handleMouseOver);
+        };
     }, [mouseX, mouseY]);
 
-    // Derived transforms for the cursor visual
-    const scale = isPressed ? 0.8 : isHovering ? 1.5 : 1;
-    const opacity = isPressed ? 0.8 : 1;
-
-    // We'll use a mix-blend-mode to make it invert colors on white/black backgrounds
-    // The "dot" is the raw mouse position (immediate)
-    // The "ring" follows with physics
+    // Calculate arrow direction from velocity
+    const angle = Math.atan2(velocity.y, velocity.x) * (180 / Math.PI);
+    const speed = Math.sqrt(velocity.x ** 2 + velocity.y ** 2);
 
     return (
         <div className="hidden lg:block pointer-events-none fixed inset-0 z-[9999] mix-blend-difference">
 
-            {/* The Main Ring/Aura */}
+            {/* Main Minimal Arrow Pointer */}
             <motion.div
-                className="absolute bg-white rounded-full"
                 style={{
-                    left: smoothX,
-                    top: smoothY,
-                    height: 30,
-                    width: 30,
-                    x: "-50%",
-                    y: "-50%"
+                    left: springX,
+                    top: springY,
+                    x: '-50%',
+                    y: '-50%',
                 }}
                 animate={{
-                    scale: scale,
-                    opacity: opacity
+                    rotate: speed > 0.5 ? angle : 0,
                 }}
                 transition={{
-                    scale: { duration: 0.2, ease: "easeInOut" },
-                    opacity: { duration: 0.2 }
+                    rotate: { type: "spring", stiffness: 150, damping: 15 }
                 }}
-            />
+                className="absolute"
+            >
+                {/* Ultra-Minimal Line Arrow */}
+                <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                >
+                    {/* Single stroke arrow - very minimal */}
+                    <motion.path
+                        d="M8 14H20M20 14L15 9M20 14L15 19"
+                        stroke="white"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        animate={{
+                            strokeWidth: isHovering ? "2" : "1.5",
+                        }}
+                    />
+                </svg>
+            </motion.div>
 
-            {/* Optional: Small center dot for precision (keeps visible center) */}
+            {/* Velocity Trail - extends backwards when moving fast */}
+            {speed > 0.5 && (
+                <motion.div
+                    style={{
+                        left: springX,
+                        top: springY,
+                        x: '-50%',
+                        y: '-50%',
+                    }}
+                    animate={{
+                        rotate: angle,
+                    }}
+                    className="absolute"
+                >
+                    <motion.div
+                        className="h-[1px] bg-gradient-to-r from-white/60 to-transparent"
+                        animate={{
+                            width: Math.min(speed * 50, 80), // Trail length based on speed
+                        }}
+                        transition={{ duration: 0.1 }}
+                        style={{
+                            transformOrigin: 'left center',
+                            transform: 'translateX(-100%)'
+                        }}
+                    />
+                </motion.div>
+            )}
+
+            {/* Center Dot for precision */}
             <motion.div
-                className="absolute bg-white rounded-full"
                 style={{
                     left: mouseX,
                     top: mouseY,
-                    height: 8,
-                    width: 8,
-                    x: "-50%",
-                    y: "-50%"
+                    x: '-50%',
+                    y: '-50%',
+                }}
+                className="absolute w-[3px] h-[3px] bg-white rounded-full"
+                animate={{
+                    scale: isHovering ? 0 : 1,
+                    opacity: speed > 1 ? 0 : 1,
                 }}
             />
+
         </div>
     );
 }

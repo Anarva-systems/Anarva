@@ -1,19 +1,13 @@
-"use client";
-import Hero from "./components/Hero";
-import WhyChooseUs from "./components/sections/WhyChooseUs";
-import ProcessPreview from "./components/sections/ProcessPreview";
-import FeaturedProjects from "./components/sections/FeaturedProjects";
-import ChaosHero from "./components/Chaos-Hero";
-import Warehouse from "./components/Warehouse-Hero";
+import Hero from "./components/home/Hero";
+import WorkGrid from "./components/home/WorkGrid";
+import ServicesList from "./components/home/ServicesList";
+
 export default function Home() {
   return (
-    <main className="relative bg-white min-h-screen">
+    <main className="relative min-h-screen bg-black text-white selection:bg-white selection:text-black">
       <Hero />
-      {/* <ChaosHero /> */}
-      {/* <Warehouse /> */}
-      <WhyChooseUs />
-      <FeaturedProjects />
-      <ProcessPreview />
+      <WorkGrid />
+      <ServicesList />
     </main>
   );
 }

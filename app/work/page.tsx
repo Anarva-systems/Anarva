@@ -1,180 +1,109 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 
-const projects = [
-    {
-        id: 1,
-        title: "Novus Bank",
-        category: "Fintech",
-        description: "Reimagining the digital banking experience for the next generation.",
-        imageColor: "bg-indigo-900",
-        year: "2024"
-    },
-    {
-        id: 2,
-        title: "Lumina Fashion",
-        category: "E-Commerce",
-        description: "A high-conversion headless storefront built with Next.js.",
-        imageColor: "bg-slate-900",
-        year: "2023"
-    },
-    {
-        id: 3,
-        title: "Orbital Space",
-        category: "Aerospace",
-        description: "Mission control dashboard interface for private spaceflight tracking.",
-        imageColor: "bg-cyan-900",
-        year: "2024"
-    },
-    {
-        id: 4,
-        title: "Velox Motors",
-        category: "Automotive",
-        description: "Immersive 3D configurator for electric vehicle customization.",
-        imageColor: "bg-orange-900",
-        year: "2023"
-    },
-    {
-        id: 5,
-        title: "Nexus Health",
-        category: "Healthcare",
-        description: "Patient portal with real-time appointment scheduling and telemedicine.",
-        imageColor: "bg-emerald-900",
-        year: "2024"
-    },
-    {
-        id: 6,
-        title: "Ark Architects",
-        category: "Portfolio",
-        description: "Minimalist portfolio for an award-winning architectural firm.",
-        imageColor: "bg-zinc-700",
-        year: "2023"
-    }
+const projectShowcase = [
+    { id: 1, title: "Novus Bank", category: "Fintech", image: "https://images.unsplash.com/photo-1563911302283-d2bc129e7c1f?q=80&w=1000&auto=format&fit=crop" },
+    { id: 2, title: "Lumina Store", category: "E-Commerce", image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop" },
+    { id: 3, title: "Orbital Control", category: "Aerospace", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop" },
+    { id: 4, title: "Velox Custom", category: "Automotive", image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1000&auto=format&fit=crop" },
+    { id: 5, title: "Nexus Health", category: "Healthcare", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000&auto=format&fit=crop" },
 ];
 
-const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
+const CARD_WIDTH = 260; // Slightly wider for project visuals
+const STRIDE = CARD_WIDTH + 20;
 
-export default function ProjectsPage() {
-    const [activeCategory, setActiveCategory] = useState("All");
+function ProjectRadialCard({ project, index, scrollX, containerRef }: { project: any, index: number, scrollX: MotionValue<number>, containerRef: React.RefObject<HTMLDivElement | null> }) {
+    const position = index * STRIDE;
+    const range = [position - STRIDE * 1.5, position, position + STRIDE * 1.5];
 
-    const filteredProjects = activeCategory === "All"
-        ? projects
-        : projects.filter(project => project.category === activeCategory);
+    // SCALE: Hero expands DOWNWARD to avoid headline
+    const scale = useTransform(scrollX, range, [0.75, 1.25, 0.75]);
+
+    // Y-OFFSET: Steepening the curve to 200px
+    const y = useTransform(scrollX, range, [200, 0, 200]);
+
+    const rotateZ = useTransform(scrollX, range, [-20, 0, 20]);
+    const opacity = useTransform(scrollX, range, [0.5, 1, 0.5]);
+    const zIndex = useTransform(scrollX, range, [1, 50, 1]);
+
+    const handleCenterScroll = () => {
+        if (containerRef.current) {
+            containerRef.current.scrollTo({ left: position, behavior: "smooth" });
+        }
+    };
 
     return (
-        <main className="min-h-screen bg-white pt-32 pb-20 px-6">
-            <div className="container mx-auto max-w-[1400px]">
-                {/* Header Section */}
-                <div className="mb-20 space-y-8">
-                    <div className="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-black/5 pb-8">
-                        <div>
-                            <h2 className="text-sm font-mono font-bold text-indigo-600 mb-4 tracking-wider uppercase">
-                                // Portfolio
-                            </h2>
-                            <h1 className="text-5xl md:text-7xl font-light tracking-tighter text-slate-900">
-                                Selected Works
-                            </h1>
-                        </div>
-                        <p className="text-slate-500 text-lg max-w-sm text-right hidden md:block">
-                            Digital products that define<br />industry standards.
-                        </p>
-                    </div>
-
-                    {/* Filter Tabs */}
-                    <div className="flex flex-wrap gap-2">
-                        {categories.map((category) => (
-                            <button
-                                key={category}
-                                onClick={() => setActiveCategory(category)}
-                                className={`
-                                    relative px-6 py-2.5 rounded-full text-sm font-medium transition-colors
-                                    ${activeCategory === category ? "text-white" : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"}
-                                `}
-                            >
-                                {activeCategory === category && (
-                                    <motion.div
-                                        layoutId="activeFilter"
-                                        className="absolute inset-0 bg-slate-900 rounded-full"
-                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                    />
-                                )}
-                                <span className="relative z-10">{category}</span>
-                            </button>
-                        ))}
-                    </div>
+        <motion.div
+            onClick={handleCenterScroll}
+            style={{ y, scale, rotateZ, opacity, zIndex, width: CARD_WIDTH }}
+            className="flex-shrink-0 h-[420px] relative snap-center cursor-pointer will-change-transform origin-top"
+        >
+            <div className="w-full h-full rounded-[2rem] overflow-hidden border border-white/5 bg-[#0A0A0A] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] flex flex-col group">
+                <div className="flex-1 relative overflow-hidden">
+                    <img
+                        src={project.image}
+                        alt={project.title}
+                        className="absolute inset-0 w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
                 </div>
 
-                {/* Projects Grid */}
-                <motion.div
-                    layout
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    <AnimatePresence mode="popLayout">
-                        {filteredProjects.map((project) => (
-                            <motion.div
-                                layout
-                                key={project.id}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                                transition={{ duration: 0.3 }}
-                                data-cursor-text="VIEW"
-                                className="group relative aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden cursor-pointer"
-                            >
-                                {/* Image Placeholder / Background */}
-                                <div className={`absolute inset-0 ${project.imageColor} transition-transform duration-700 group-hover:scale-105`} />
-
-                                {/* Overlay Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-
-                                {/* Content */}
-                                <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                                    <div className="flex justify-between items-start">
-                                        <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-bold text-white uppercase tracking-widest border border-white/10">
-                                            {project.year}
-                                        </span>
-
-                                        <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                                            <ArrowUpRight className="w-5 h-5" />
-                                        </div>
-                                    </div>
-
-                                    <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                        <span className="text-indigo-300 text-xs font-bold uppercase tracking-wider mb-2 block">
-                                            {project.category}
-                                        </span>
-                                        <h3 className="text-3xl font-medium text-white mb-3">
-                                            {project.title}
-                                        </h3>
-                                        <p className="text-slate-300 text-sm line-clamp-2 max-w-[90%] opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
-                                            {project.description}
-                                        </p>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </AnimatePresence>
-                </motion.div>
-
-                {/* Footer CTA */}
-                <div className="mt-32 flex flex-col items-center justify-center text-center">
-                    <h2 className="text-3xl font-light text-slate-900 mb-8">
-                        Have a project in mind?
-                    </h2>
-                    <Link
-                        href="/submit-requirements"
-                        className="group relative inline-flex items-center gap-4 px-8 py-4 bg-slate-900 text-white rounded-full overflow-hidden"
-                    >
-                        <span className="relative z-10 font-medium">Start Your Project</span>
-                        <ArrowUpRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                        <div className="absolute inset-0 bg-indigo-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                    </Link>
+                <div className="p-6 bg-[#0A0A0A] border-t border-white/5">
+                    <span className="text-zinc-600 text-[9px] uppercase tracking-[0.3em] font-bold">
+                        {project.category}
+                    </span>
+                    <h3 className="text-white text-lg font-bold tracking-tight mt-1 mb-4">
+                        {project.title}
+                    </h3>
+                    <button className="w-full py-3 rounded-xl bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-200 transition-all active:scale-95">
+                        View Case Study
+                    </button>
                 </div>
             </div>
-        </main>
+        </motion.div>
+    );
+}
+
+export default function ProjectShowcase() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollX } = useScroll({ container: containerRef });
+
+    return (
+        <section className="relative w-full min-h-screen bg-[var(--obsidian)] flex flex-col overflow-hidden">
+
+            {/* 1. Adjusted Headline Section */}
+            <div className="text-center pt-20 z-0 pointer-events-none relative">
+                <h1 className="text-6xl md:text-8xl font-bold text-white tracking-tighter leading-[0.8] mb-6">
+                    Selected <br />
+                    <span className="text-zinc-800">projects</span>
+                </h1>
+                <p className="text-zinc-600 text-[10px] uppercase tracking-[0.5em] mt-4">
+                    Curated digital experiences for elite brands
+                </p>
+            </div>
+
+            {/* 2. Project Carousel Section */}
+            <div
+                ref={containerRef}
+                className="mt-36 flex items-start overflow-x-auto snap-x snap-mandatory px-[50vw] pb-48 [&::-webkit-scrollbar]:hidden"
+                style={{
+                    paddingLeft: `calc(50vw - ${CARD_WIDTH / 2}px)`,
+                    paddingRight: `calc(50vw - ${CARD_WIDTH / 2}px)`,
+                    perspective: "1800px"
+                }}
+            >
+                {projectShowcase.map((project, index) => (
+                    <ProjectRadialCard
+                        key={project.id}
+                        index={index}
+                        project={project}
+                        scrollX={scrollX}
+                        containerRef={containerRef}
+                    />
+                ))}
+            </div>
+        </section>
     );
 }

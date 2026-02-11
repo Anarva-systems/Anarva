@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import HeroLogo from "./HeroLogo"
 
 const steps = [
     { num: "01", title: "Discovery", desc: "We analyze your requirements." },
@@ -44,7 +43,6 @@ export default function ProcessPreview() {
                     </Link>
                 </div>
             </div>
-            <HeroLogo />
         </section>
     );
 }
