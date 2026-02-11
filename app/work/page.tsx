@@ -71,7 +71,7 @@ export default function ProjectShowcase() {
     const { scrollX } = useScroll({ container: containerRef });
 
     return (
-        <section className="relative w-full min-h-screen bg-[var(--obsidian)] flex flex-col overflow-hidden">
+        <section className="relative w-full min-h-screen bg-black flex flex-col overflow-hidden">
 
             {/* 1. Adjusted Headline Section */}
             <div className="text-center pt-20 z-0 pointer-events-none relative">

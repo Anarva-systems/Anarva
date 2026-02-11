@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className="bg-[var(--obsidian)]">
+    <main className="bg-black">
       <div className="pt-20">
         <ServiceGrid />
       </div>

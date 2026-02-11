@@ -54,7 +54,7 @@ export default function SubmitRequirementsLight() {
     };
 
     return (
-        <main className="min-h-screen bg-[var(--obsidian)] pt-32 pb-20 px-6 text-white selection:bg-[#00e6ff] selection:text-black">
+        <main className="min-h-screen bg-black pt-32 pb-20 px-6 text-white selection:bg-[#00e6ff] selection:text-black">
             {/* Subtle Texture: Gallery Grid - White Dots for Dark Mode */}
             {/* <div className="fixed inset-0 opacity-[0.05] pointer-events-none"
                 style={{ backgroundImage: `linear-gradient(#fff 1.1px, transparent 1.1px), linear-gradient(90deg, #fff 1.1px, transparent 1.1px)`, backgroundSize: '40px 40px' }} /> */}

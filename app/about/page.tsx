@@ -3,7 +3,7 @@ import { KineticText } from "../components/KineticText";
 
 export default function AboutPage() {
     return (
-        <main className="min-h-screen bg-[var(--obsidian)] pt-32 pb-20 px-6">
+        <main className="min-h-screen bg-black pt-32 pb-20 px-6">
             <div className="container mx-auto max-w-4xl">
                 {/* Introduction */}
                 <div className="mb-20">
