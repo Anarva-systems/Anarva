@@ -31,8 +31,8 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className="bg-black">
-      <div className="pt-20">
+    <main className="bg-black pt-15">
+      <div className="">
         <ServiceGrid />
       </div>
       <WhyChooseUs />
