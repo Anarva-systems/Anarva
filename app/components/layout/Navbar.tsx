@@ -39,7 +39,7 @@ export default function Navbar() {
     }, [isMenuOpen]);
 
     return (
-        <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? "py-4" : "py-6"}`}>
+        <header className={`fixed top-0 left-0 w-full z-100 transition-all duration-300 ${scrolled ? "py-4" : "py-6"}`}>
             <div className="px-6 md:px-12 flex items-center justify-between">
                 {/* Logo - Left */}
                 <div className="flex-shrink-0 z-50">
