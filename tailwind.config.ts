@@ -8,6 +8,10 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                sans: ["var(--font-syne)", "var(--font-inter)", "sans-serif"],
+                mono: ["var(--font-mono)", "monospace"],
+            },
             colors: {
                 // Cosmic Palette
                 cosmic: {

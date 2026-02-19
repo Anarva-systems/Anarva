@@ -1,0 +1,649 @@
+{
+    "greetings": {
+        "keywords": [
+            "hi",
+            "hello",
+            "hey",
+            "hola",
+            "sup",
+            "yo",
+            "greetings",
+            "howdy",
+            "what's up",
+            "whats up"
+        ],
+        "responses": [
+            "Hey there! 👋 Welcome to ANARVA. I'm here to help you explore our services, check out our work, or kick off a new project. What would you like to do?",
+            "Hello! Great to have you here at ANARVA. How can I assist you today? Feel free to ask about our services, portfolio, or anything else!",
+            "Hey! 👋 I'm the ANARVA assistant. Whether you're curious about what we build or ready to start a project — I've got you covered."
+        ],
+        "options": [
+            "Our Services",
+            "View Our Work",
+            "Start a Project",
+            "How We Work"
+        ]
+    },
+    "good_morning": {
+        "keywords": [
+            "good morning",
+            "morning",
+            "gm"
+        ],
+        "responses": [
+            "Good morning! ☀️ Hope you're having a great start to the day. What can ANARVA help you with today?",
+            "Morning! 🌅 Ready to build something extraordinary? Let me know how I can help."
+        ],
+        "options": [
+            "Our Services",
+            "View Our Work",
+            "Start a Project"
+        ]
+    },
+    "good_afternoon": {
+        "keywords": [
+            "good afternoon",
+            "afternoon"
+        ],
+        "responses": [
+            "Good afternoon! 🌤️ Thanks for stopping by ANARVA. How can we help you today?",
+            "Afternoon! Hope your day is going well. What brings you to ANARVA?"
+        ],
+        "options": [
+            "Our Services",
+            "View Our Work",
+            "Start a Project"
+        ]
+    },
+    "good_evening": {
+        "keywords": [
+            "good evening",
+            "evening",
+            "good night"
+        ],
+        "responses": [
+            "Good evening! 🌙 Great to see you here. Whether it's a quick question or a new project — I'm all ears!",
+            "Evening! We're still at the desk crafting digital experiences. What can I help you with?"
+        ],
+        "options": [
+            "Our Services",
+            "View Our Work",
+            "Start a Project"
+        ]
+    },
+    "how_are_you": {
+        "keywords": [
+            "how are you",
+            "how r u",
+            "how's it going",
+            "how are things",
+            "what's good"
+        ],
+        "responses": [
+            "I'm running at full capacity! 🚀 Thanks for asking. How can I help you today?",
+            "Doing great, always ready to help! What can I do for you?"
+        ],
+        "options": [
+            "Our Services",
+            "View Our Work",
+            "Start a Project"
+        ]
+    },
+    "about_anarva": {
+        "keywords": [
+            "who are you",
+            "what is anarva",
+            "about anarva",
+            "tell me about you",
+            "about your company",
+            "what do you do",
+            "about company",
+            "what does anarva do"
+        ],
+        "responses": [
+            "We are **ANARVA** — a digital architecture studio that builds high-performance websites, applications, and AI-powered solutions. 🏗️\n\nWe bridge the gap between heavy engineering and delicate design. With **15+ projects** delivered across **12+ countries** and a **98% client retention rate**, we specialize in:\n\n• Product Design (UI/UX)\n• AI Solutions (RAG, Agents, ML)\n• Full-Stack Development (Next.js, React)\n• Web3 & Blockchain\n• Growth Engineering\n• Enterprise Security\n\nOur mission is to simplify complexity — building products that feel intuitive but are powered by industrial-grade engineering."
+        ],
+        "options": [
+            "Our Services",
+            "View Our Work",
+            "Our Process",
+            "Start a Project"
+        ]
+    },
+    "services_overview": {
+        "keywords": [
+            "services",
+            "what do you offer",
+            "what can you do",
+            "your services",
+            "explore services",
+            "our services",
+            "what you do",
+            "capabilities",
+            "offerings"
+        ],
+        "responses": [
+            "We offer **6 core services** engineered for modern businesses:\n\n🎨 **Product Design** — UI/UX, Design Systems, Prototyping\n🧠 **AI Solutions** — RAG Pipelines, AI Agents, Fine-tuning\n💻 **Full-Stack Dev** — Next.js, React, Node.js\n🌐 **Web3 & Blockchain** — Smart Contracts, dApps, Solidity\n🚀 **Growth Engineering** — SEO, Analytics, CRO\n🛡️ **Enterprise Security** — Audits, Compliance, Pen-testing\n\nWant to know more about a specific service? Just ask!"
+        ],
+        "options": [
+            "Product Design",
+            "AI Solutions",
+            "Full-Stack Dev",
+            "Web3 & Blockchain",
+            "Growth Engineering",
+            "Enterprise Security"
+        ]
+    },
+    "service_product_design": {
+        "keywords": [
+            "product design",
+            "ui ux",
+            "ux",
+            "ui",
+            "design",
+            "interface",
+            "branding",
+            "design systems",
+            "prototyping"
+        ],
+        "responses": [
+            "🎨 **Product Design**\n\nWe craft intuitive, accessible, and stunning interfaces that convert. Our design process is deeply rooted in user research and data-driven decisions.\n\n**What's included:**\n• UI/UX Design & User Research\n• Design Systems & Component Libraries\n• High-fidelity Prototyping\n• Brand Identity & Visual Language\n• Responsive & Mobile-first Design\n\nWe believe in \"weightless interfaces\" — designs that don't burden the user but guide them effortlessly to their goal."
+        ],
+        "options": [
+            "See Our Work",
+            "Start a Project",
+            "Other Services"
+        ]
+    },
+    "service_ai": {
+        "keywords": [
+            "ai",
+            "artificial intelligence",
+            "machine learning",
+            "ml",
+            "llm",
+            "rag",
+            "agents",
+            "fine-tuning",
+            "deep learning",
+            "neural",
+            "ai solutions",
+            "chatbot",
+            "automation"
+        ],
+        "responses": [
+            "🧠 **AI Solutions**\n\nWe leverage cutting-edge LLMs and custom ML models to automate workflows and unlock new capabilities.\n\n**What we build:**\n• RAG Pipelines for document Q&A\n• Custom AI Agents & Chatbots\n• LLM Fine-tuning & Prompt Engineering\n• Computer Vision Systems\n• Predictive Analytics & Forecasting\n\n**Tools we use:** Python, PyTorch, TensorFlow, LangChain, OpenAI, NVIDIA NIM, FastAPI\n\n**Notable AI projects:** VendorSync (AI vendor matching), Alzheimer Early Detection (MRI analysis), Refino (Prompt Generator), CyberSentinel.AI (threat detection)"
+        ],
+        "options": [
+            "View AI Projects",
+            "Start an AI Project",
+            "Other Services"
+        ]
+    },
+    "service_fullstack": {
+        "keywords": [
+            "full stack",
+            "fullstack",
+            "full-stack",
+            "web development",
+            "web app",
+            "website",
+            "next.js",
+            "nextjs",
+            "react",
+            "node",
+            "frontend",
+            "backend",
+            "development"
+        ],
+        "responses": [
+            "💻 **Full-Stack Development**\n\nWe build scalable, secure, and blazing-fast web applications using modern frameworks.\n\n**Tech Stack:**\n• Frontend — Next.js, React, TypeScript, Tailwind CSS\n• Backend — Node.js, Python, FastAPI\n• Database — PostgreSQL, MongoDB, Redis\n• Deployment — Vercel, AWS, Docker\n\n**What we deliver:**\n• Progressive Web Apps (PWAs)\n• Server-side Rendered Applications\n• REST & GraphQL APIs\n• Real-time WebSocket Applications\n• Admin Dashboards & CMS\n\nEvery project is built with performance, accessibility, and SEO baked in from day one."
+        ],
+        "options": [
+            "See Our Work",
+            "Start a Project",
+            "Other Services"
+        ]
+    },
+    "service_web3": {
+        "keywords": [
+            "web3",
+            "blockchain",
+            "crypto",
+            "smart contract",
+            "solidity",
+            "dapp",
+            "decentralized",
+            "nft",
+            "defi",
+            "token"
+        ],
+        "responses": [
+            "🌐 **Web3 & Blockchain**\n\nDecentralized applications and smart contracts for the next-generation internet.\n\n**What we build:**\n• Smart Contracts (Solidity / Rust)\n• Decentralized Applications (dApps)\n• Token & NFT Platforms\n• DeFi Protocols\n• Web3 Authentication & Wallets\n\nWe help businesses leverage blockchain technology with a focus on security, gas optimization, and seamless user experience."
+        ],
+        "options": [
+            "Start a Web3 Project",
+            "Other Services",
+            "View Our Work"
+        ]
+    },
+    "service_growth": {
+        "keywords": [
+            "growth",
+            "seo",
+            "marketing",
+            "analytics",
+            "performance",
+            "cro",
+            "conversion",
+            "optimization",
+            "growth engineering"
+        ],
+        "responses": [
+            "🚀 **Growth Engineering**\n\nTechnical SEO, performance optimization, and analytics integration to drive measurable growth.\n\n**Services include:**\n• Technical SEO Audits & Implementation\n• Core Web Vitals Optimization\n• Analytics & Tracking Setup (GA4, Mixpanel)\n• A/B Testing & Conversion Rate Optimization\n• Performance Monitoring & Reporting\n\nWe don't just build products — we engineer them for growth from the ground up."
+        ],
+        "options": [
+            "Start a Project",
+            "Other Services",
+            "Our Process"
+        ]
+    },
+    "service_security": {
+        "keywords": [
+            "security",
+            "cybersecurity",
+            "audit",
+            "penetration",
+            "pen-testing",
+            "compliance",
+            "enterprise security",
+            "encryption"
+        ],
+        "responses": [
+            "🛡️ **Enterprise Security**\n\nBank-grade security audits and implementation to protect your users and data.\n\n**What we cover:**\n• Security Audits & Vulnerability Assessment\n• Penetration Testing\n• HIPAA / SOC2 / GDPR Compliance\n• End-to-end Data Encryption\n• Incident Response Protocols\n\nSecurity isn't an afterthought — it's built into every layer of our development process."
+        ],
+        "options": [
+            "Start a Project",
+            "Other Services",
+            "View Our Work"
+        ]
+    },
+    "projects_overview": {
+        "keywords": [
+            "projects",
+            "work",
+            "portfolio",
+            "what have you built",
+            "show me your work",
+            "past work",
+            "case studies",
+            "view our work",
+            "your work",
+            "examples"
+        ],
+        "responses": [
+            "Here are some of our **featured projects**:\n\n🔹 **VendorSync** — AI-powered vendor management platform with predictive analytics\n🔹 **CodeViz** — Interactive code visualization platform for programming education\n🔹 **Alzheimer Early Detection** — Deep learning MRI analysis with 94% accuracy\n🔹 **Deriverse Trading Analytics** — Real-time trading dashboard with AI signals\n🔹 **Refino** — AI prompt engineering & generation tool\n🔹 **CyberSentinel.AI** — Real-time cybersecurity threat detection platform\n🔹 **Secure Q&A** — RAG-based enterprise knowledge assistant\n🔹 **WikiQuiz** — AI-powered quiz generation from Wikipedia\n\nWant to know more about a specific project? Just ask!"
+        ],
+        "options": [
+            "VendorSync",
+            "CodeViz",
+            "Alzheimer Detection",
+            "Deriverse Trading",
+            "Refino",
+            "CyberSentinel.AI"
+        ]
+    },
+    "project_vendorsync": {
+        "keywords": [
+            "vendorsync",
+            "vendor sync",
+            "vendor management"
+        ],
+        "responses": [
+            "🔹 **VendorSync** (2025)\n\nAn intelligent vendor management platform that leverages AI to automate procurement workflows.\n\n**Key Features:**\n• AI-powered vendor matching & scoring\n• Real-time inventory synchronization\n• Predictive demand forecasting\n• Automated invoice processing\n\n**Tech:** Next.js, Python, TensorFlow, PostgreSQL, Redis, Docker"
+        ],
+        "options": [
+            "View All Projects",
+            "Start a Similar Project",
+            "Our Services"
+        ]
+    },
+    "project_codeviz": {
+        "keywords": [
+            "codeviz",
+            "code viz",
+            "code visualization"
+        ],
+        "responses": [
+            "🔹 **CodeViz** (2025)\n\nA revolutionary code visualization platform that transforms complex algorithms into interactive animated diagrams.\n\n**Key Features:**\n• Real-time algorithm visualization\n• Interactive step-by-step debugging\n• Multi-language code compilation\n• Collaborative learning sessions\n\n**Tech:** React, TypeScript, D3.js, Node.js, WebSocket, MongoDB"
+        ],
+        "options": [
+            "View All Projects",
+            "Start a Similar Project",
+            "Our Services"
+        ]
+    },
+    "project_alzheimer": {
+        "keywords": [
+            "alzheimer",
+            "alzheimers",
+            "early detection",
+            "mri",
+            "brain scan",
+            "healthtech"
+        ],
+        "responses": [
+            "🔹 **Alzheimer Early Detection** (2025)\n\nA deep learning diagnostic tool that analyzes MRI brain scans to detect early signs of Alzheimer's disease.\n\n**Key Features:**\n• MRI scan analysis with 94% accuracy\n• Early-stage biomarker detection\n• Patient risk scoring dashboard\n• HIPAA-compliant data pipeline\n\n**Tech:** Python, PyTorch, FastAPI, React, OpenCV, AWS"
+        ],
+        "options": [
+            "View All Projects",
+            "Start a HealthTech Project",
+            "Our AI Services"
+        ]
+    },
+    "project_deriverse": {
+        "keywords": [
+            "deriverse",
+            "trading",
+            "trading analytics",
+            "fintech"
+        ],
+        "responses": [
+            "🔹 **Deriverse Trading Analytics** (2024)\n\nA sophisticated trading analytics dashboard with real-time market insights and AI-driven trade signals.\n\n**Key Features:**\n• Live market data visualization\n• AI-driven trading signals\n• Portfolio risk analysis\n• Real-time P&L tracking\n\n**Tech:** Next.js, Python, FastAPI, TensorFlow, PostgreSQL, WebSocket"
+        ],
+        "options": [
+            "View All Projects",
+            "Start a Fintech Project",
+            "Our Services"
+        ]
+    },
+    "project_refino": {
+        "keywords": [
+            "refino",
+            "prompt generator",
+            "prompt engineering"
+        ],
+        "responses": [
+            "🔹 **Refino — AI Prompt Generator** (2025)\n\nAn advanced AI prompt engineering tool that generates optimized, production-grade prompts for any use case.\n\n**Key Features:**\n• Smart prompt optimization engine\n• Multi-model compatibility\n• Context-aware prompt refinement\n• One-click prompt templates\n\n**Tech:** Next.js, TypeScript, OpenAI API, Tailwind CSS, Vercel"
+        ],
+        "options": [
+            "View All Projects",
+            "Start a Project",
+            "Our AI Services"
+        ]
+    },
+    "project_cybersentinel": {
+        "keywords": [
+            "cybersentinel",
+            "cyber sentinel",
+            "cybersecurity platform"
+        ],
+        "responses": [
+            "🔹 **CyberSentinel.AI** (2024)\n\nAn AI-powered cybersecurity platform for real-time threat detection and automated incident response.\n\n**Key Features:**\n• Real-time threat detection\n• Automated incident response\n• Network traffic analysis\n• Vulnerability assessment reports\n\n**Tech:** Python, TensorFlow, React, Elasticsearch, Kafka, Docker"
+        ],
+        "options": [
+            "View All Projects",
+            "Start a Security Project",
+            "Our Services"
+        ]
+    },
+    "project_secureqa": {
+        "keywords": [
+            "secure qa",
+            "secure q&a",
+            "knowledge assistant",
+            "secure q and a",
+            "secureqa"
+        ],
+        "responses": [
+            "🔹 **Secure Q&A — Knowledge Assistant** (2025)\n\nAn enterprise-grade knowledge assistant using RAG for secure document Q&A with strict data privacy.\n\n**Key Features:**\n• RAG-based document Q&A\n• End-to-end data encryption\n• Multi-format document support\n• Citation-backed responses\n\n**Tech:** Python, LangChain, FastAPI, React, ChromaDB, Docker"
+        ],
+        "options": [
+            "View All Projects",
+            "Start a Similar Project",
+            "Our AI Services"
+        ]
+    },
+    "project_wikiquiz": {
+        "keywords": [
+            "wikiquiz",
+            "wiki quiz",
+            "wikipedia quiz"
+        ],
+        "responses": [
+            "🔹 **WikiQuiz — Wikipedia Quiz** (2025)\n\nAn intelligent quiz generation platform that transforms any Wikipedia article into engaging, adaptive quizzes.\n\n**Key Features:**\n• AI-powered quiz generation\n• Adaptive difficulty scaling\n• Performance analytics dashboard\n• Multi-topic quiz history\n\n**Tech:** Next.js, Python, NVIDIA NIM, Tailwind CSS, Vercel"
+        ],
+        "options": [
+            "View All Projects",
+            "Start a Project",
+            "Our Services"
+        ]
+    },
+    "process": {
+        "keywords": [
+            "process",
+            "how do you work",
+            "methodology",
+            "workflow",
+            "how we work",
+            "our process",
+            "steps",
+            "how does it work",
+            "what's your process"
+        ],
+        "responses": [
+            "Our development follows a **5-phase protocol** designed for precision and speed:\n\n**01 — Discovery & Strategy**\nWe dive deep into your goals, audience, and requirements. No code until we understand exactly what you need.\n\n**02 — Wireframing & UX**\nInteractive prototypes to nail the user flow before applying visual design.\n\n**03 — UI Design & Build**\nHigh-fidelity design + robust frontend/backend architecture built in parallel.\n\n**04 — QA & Testing**\nRigorous cross-device, cross-browser testing for flawless performance.\n\n**05 — Launch & Scale**\nDeployment, post-launch support, and scaling as your user base grows.\n\nThis ensures on-time delivery with zero technical compromise."
+        ],
+        "options": [
+            "Start a Project",
+            "Our Services",
+            "View Our Work"
+        ]
+    },
+    "pricing": {
+        "keywords": [
+            "pricing",
+            "cost",
+            "price",
+            "how much",
+            "budget",
+            "rates",
+            "fees",
+            "investment",
+            "quote",
+            "estimate",
+            "affordable"
+        ],
+        "responses": [
+            "💰 Our pricing is tailored to each project's scope and complexity. Here are our typical investment ranges:\n\n• **$0 – $5K** → Landing pages, small websites\n• **$5K – $10K** → Web apps with basic features\n• **$10K – $25K** → Full-stack applications with AI integration\n• **$25K – $50K** → Enterprise platforms, complex systems\n• **$50K+** → Large-scale, multi-platform solutions\n\nWe use a **fixed-output methodology** — meaning you get predictable costs with no surprises. Every project starts with a detailed scope document.\n\nWant to discuss your budget? Let's start a conversation!"
+        ],
+        "options": [
+            "Start a Project",
+            "Our Services",
+            "Our Process"
+        ]
+    },
+    "contact": {
+        "keywords": [
+            "contact",
+            "email",
+            "reach",
+            "get in touch",
+            "phone",
+            "connect",
+            "contact support",
+            "reach out",
+            "support",
+            "talk to someone"
+        ],
+        "responses": [
+            "📬 We'd love to hear from you! Here's how to reach us:\n\n✉️ **Email:** hello@anarva.tech\n🌐 **Website:** anarva.tech/contact\n🐙 **GitHub:** github.com/Anarva-systems\n\nYou can also submit your project requirements directly through our **Contact page** — our founders review every submission personally.\n\nOr if you'd like, I can help collect your details right here!"
+        ],
+        "options": [
+            "Start a Project",
+            "Visit Contact Page",
+            "Our Services"
+        ]
+    },
+    "start_project": {
+        "keywords": [
+            "start a project",
+            "start project",
+            "hire",
+            "work together",
+            "build something",
+            "new project",
+            "collaborate",
+            "let's build",
+            "begin",
+            "get started",
+            "start a similar project"
+        ],
+        "responses": [
+            "Awesome, let's get the ball rolling! 🚀\n\nTo kick things off, I'll need a few details. First — **what's your name?**"
+        ],
+        "options": []
+    },
+    "tech_stack": {
+        "keywords": [
+            "tech stack",
+            "technology",
+            "technologies",
+            "tools",
+            "frameworks",
+            "what do you use",
+            "programming language",
+            "languages"
+        ],
+        "responses": [
+            "🛠️ Our **Tech Stack** is built for performance and scalability:\n\n**Frontend:**\nNext.js, React, TypeScript, Tailwind CSS, Framer Motion\n\n**Backend:**\nNode.js, Python, FastAPI, Express.js\n\n**AI/ML:**\nPyTorch, TensorFlow, LangChain, OpenAI, NVIDIA NIM\n\n**Database:**\nPostgreSQL, MongoDB, Redis, ChromaDB\n\n**DevOps:**\nDocker, AWS, Vercel, Kafka, Elasticsearch\n\n**Blockchain:**\nSolidity, Rust, Web3.js\n\nWe choose the right tool for each project — no one-size-fits-all approach."
+        ],
+        "options": [
+            "Our Services",
+            "View Our Work",
+            "Start a Project"
+        ]
+    },
+    "team": {
+        "keywords": [
+            "team",
+            "founders",
+            "who works",
+            "employees",
+            "members",
+            "people",
+            "developers"
+        ],
+        "responses": [
+            "👥 ANARVA is led by our co-founders who are directly involved in every project. You get:\n\n• **Direct access to founders** — no middlemen or account managers\n• A team of experienced full-stack developers and AI engineers\n• Designers who obsess over every pixel\n\n**Our stats:**\n• 5+ years of experience\n• 15+ projects delivered\n• 12+ countries served\n• 98% client retention rate\n\nWe're a lean, high-output studio — not a bloated agency."
+        ],
+        "options": [
+            "Our Services",
+            "Start a Project",
+            "Our Process"
+        ]
+    },
+    "thanks": {
+        "keywords": [
+            "thank you",
+            "thanks",
+            "thx",
+            "appreciate",
+            "cheers",
+            "ty"
+        ],
+        "responses": [
+            "You're welcome! 😊 Feel free to reach out anytime. We're always here to help!",
+            "Glad I could help! Don't hesitate to ask if you need anything else. 🚀",
+            "Anytime! Hope to work together soon. Have a great day! ✨"
+        ],
+        "options": [
+            "Our Services",
+            "View Our Work",
+            "Start a Project"
+        ]
+    },
+    "bye": {
+        "keywords": [
+            "bye",
+            "goodbye",
+            "see you",
+            "later",
+            "cya",
+            "take care",
+            "peace"
+        ],
+        "responses": [
+            "See you later! 👋 Don't forget — we're always just a message away when you're ready to build something amazing.",
+            "Take care! 🌟 Reach out anytime at hello@anarva.tech. We'd love to work with you!",
+            "Goodbye! Until next time — keep dreaming big, and we'll help you build it. ✌️"
+        ],
+        "options": []
+    },
+    "other_services": {
+        "keywords": [
+            "other services",
+            "more services",
+            "what else"
+        ],
+        "responses": [
+            "Here's a quick overview of all our services:\n\n🎨 Product Design — UI/UX, Design Systems\n🧠 AI Solutions — RAG, Agents, ML Models\n💻 Full-Stack Dev — Next.js, React, Node.js\n🌐 Web3 & Blockchain — Smart Contracts, dApps\n🚀 Growth Engineering — SEO, Analytics, CRO\n🛡️ Enterprise Security — Audits, Compliance\n\nWhich one interests you?"
+        ],
+        "options": [
+            "Product Design",
+            "AI Solutions",
+            "Full-Stack Dev",
+            "Web3 & Blockchain",
+            "Growth Engineering",
+            "Enterprise Security"
+        ]
+    },
+    "view_ai_projects": {
+        "keywords": [
+            "view ai projects",
+            "ai projects",
+            "ai work",
+            "ai portfolio"
+        ],
+        "responses": [
+            "Here are our **AI-powered projects**:\n\n🧠 **VendorSync** — AI vendor matching & predictive analytics\n🧠 **Alzheimer Early Detection** — Deep learning MRI analysis (94% accuracy)\n🧠 **Refino** — AI prompt engineering tool\n🧠 **CyberSentinel.AI** — Real-time threat detection\n🧠 **Secure Q&A** — RAG-based document Q&A\n🧠 **WikiQuiz** — AI-powered quiz generation\n\nWant details on any specific project?"
+        ],
+        "options": [
+            "VendorSync",
+            "Alzheimer Detection",
+            "Refino",
+            "CyberSentinel.AI",
+            "Start an AI Project"
+        ]
+    },
+    "visit_contact": {
+        "keywords": [
+            "visit contact page",
+            "contact page",
+            "go to contact"
+        ],
+        "responses": [
+            "You can head over to our Contact page to submit your project requirements directly:\n\n👉 **anarva.tech/contact**\n\nOur founders personally review every submission and will get back to you promptly!"
+        ],
+        "options": [
+            "Start a Project",
+            "Our Services",
+            "View Our Work"
+        ]
+    },
+    "fallback": {
+        "keywords": [],
+        "responses": [
+            "Hmm, I'm not quite sure about that one. But I can help you with:\n\n• 🎯 Our **Services** (Design, AI, Dev, Web3, Security)\n• 💼 Our **Portfolio** & past projects\n• 🔧 Our **Process** & methodology\n• 💰 **Pricing** information\n• 📬 **Contact** details\n• 🚀 **Starting a new project**\n\nWhat would you like to explore?",
+            "I didn't catch that, but no worries! I specialize in helping you learn about ANARVA. Try asking about our services, projects, pricing, or process!",
+            "That's a bit outside my expertise, but I'm great at answering questions about ANARVA's services, work, and how to get started. What can I help you with?"
+        ],
+        "options": [
+            "Our Services",
+            "View Our Work",
+            "Our Process",
+            "Pricing",
+            "Start a Project"
+        ]
+    }
+}

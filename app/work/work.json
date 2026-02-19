@@ -1,0 +1,202 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "title": "VendorSync",
+            "label": "AI",
+            "color": "from-blue-600",
+            "bg": "/Work/Vendorsync.mp4",
+            "year": "2025",
+            "role": "Full-Stack Development",
+            "description": "An intelligent vendor management platform that leverages AI to automate procurement workflows, sync vendor data in real-time, and optimize supply chain operations with predictive analytics.",
+            "techStack": [
+                "Next.js",
+                "Python",
+                "TensorFlow",
+                "PostgreSQL",
+                "Redis",
+                "Docker"
+            ],
+            "features": [
+                "AI-powered vendor matching & scoring",
+                "Real-time inventory synchronization",
+                "Predictive demand forecasting",
+                "Automated invoice processing"
+            ],
+            "gradient": "from-blue-500 via-cyan-400 to-teal-400"
+        },
+        {
+            "id": 2,
+            "title": "CodeViz",
+            "label": "EDTECH + AI",
+            "color": "from-red-600",
+            "bg": "/Work/Codeviz.mp4",
+            "year": "2025",
+            "role": "Full-Stack Development",
+            "description": "A revolutionary code visualization platform that transforms complex algorithms into interactive animated diagrams, making programming education intuitive and engaging for learners worldwide.",
+            "techStack": [
+                "React",
+                "TypeScript",
+                "D3.js",
+                "Node.js",
+                "WebSocket",
+                "MongoDB"
+            ],
+            "features": [
+                "Real-time algorithm visualization",
+                "Interactive step-by-step debugging",
+                "Multi-language code compilation",
+                "Collaborative learning sessions"
+            ],
+            "gradient": "from-red-500 via-orange-400 to-amber-400"
+        },
+        {
+            "id": 3,
+            "title": "Alzheimer Early Detection",
+            "label": "HealthTech + AI",
+            "color": "from-purple-600",
+            "bg": "/Work/Alzheimer.mp4",
+            "year": "2025",
+            "role": "AI/ML Engineering",
+            "description": "A deep learning-powered diagnostic tool that analyzes MRI brain scans to detect early signs of Alzheimer's disease, enabling timely intervention and improved patient outcomes.",
+            "techStack": [
+                "Python",
+                "PyTorch",
+                "FastAPI",
+                "React",
+                "OpenCV",
+                "AWS"
+            ],
+            "features": [
+                "MRI scan analysis with 94% accuracy",
+                "Early-stage biomarker detection",
+                "Patient risk scoring dashboard",
+                "HIPAA-compliant data pipeline"
+            ],
+            "gradient": "from-purple-500 via-violet-400 to-fuchsia-400"
+        },
+        {
+            "id": 4,
+            "title": "Deriverse Trading Analytics",
+            "label": "FINTECH + AI",
+            "color": "from-yellow-600",
+            "bg": "/Work/DeriverseTradingAnalytics.mp4",
+            "year": "2024",
+            "role": "Full-Stack Development",
+            "description": "A sophisticated trading analytics dashboard that provides real-time market insights, AI-driven trade signals, and comprehensive portfolio performance tracking for derivative markets.",
+            "techStack": [
+                "Next.js",
+                "Python",
+                "FastAPI",
+                "TensorFlow",
+                "PostgreSQL",
+                "WebSocket"
+            ],
+            "features": [
+                "Live market data visualization",
+                "AI-driven trading signals",
+                "Portfolio risk analysis",
+                "Real-time P&L tracking"
+            ],
+            "gradient": "from-yellow-500 via-amber-400 to-orange-400"
+        },
+        {
+            "id": 5,
+            "title": "Refino - AI Prompt Generator",
+            "label": "AI",
+            "color": "from-green-600",
+            "bg": "/Work/Refino.mp4",
+            "year": "2025",
+            "role": "Full-Stack Development",
+            "description": "An advanced AI prompt engineering tool that generates optimized, production-grade prompts for any use case — from code generation to creative writing — with intelligent context analysis.",
+            "techStack": [
+                "Next.js",
+                "TypeScript",
+                "OpenAI API",
+                "Tailwind CSS",
+                "Vercel"
+            ],
+            "features": [
+                "Smart prompt optimization engine",
+                "Multi-model compatibility",
+                "Context-aware prompt refinement",
+                "One-click prompt templates"
+            ],
+            "gradient": "from-emerald-500 via-green-400 to-teal-400"
+        },
+        {
+            "id": 6,
+            "title": "CyberSentinel.AI",
+            "label": "Security + AI",
+            "color": "from-green-600",
+            "bg": "/Work/CyberSentinel.ai.mp4",
+            "year": "2024",
+            "role": "Security Engineering",
+            "description": "An AI-powered cybersecurity platform that monitors network traffic, detects threats in real-time using machine learning models, and automates incident response protocols.",
+            "techStack": [
+                "Python",
+                "TensorFlow",
+                "React",
+                "Elasticsearch",
+                "Kafka",
+                "Docker"
+            ],
+            "features": [
+                "Real-time threat detection",
+                "Automated incident response",
+                "Network traffic analysis",
+                "Vulnerability assessment reports"
+            ],
+            "gradient": "from-cyan-500 via-blue-400 to-indigo-400"
+        },
+        {
+            "id": 7,
+            "title": "Secure Q&A - Knowledge Assistant",
+            "label": "EDTECH + AI",
+            "color": "from-green-600",
+            "bg": "/Work/SecureQ&A.mp4",
+            "year": "2025",
+            "role": "AI/ML Engineering",
+            "description": "A secure, enterprise-grade knowledge assistant that uses RAG (Retrieval-Augmented Generation) to answer questions from uploaded documents while maintaining strict data privacy.",
+            "techStack": [
+                "Python",
+                "LangChain",
+                "FastAPI",
+                "React",
+                "ChromaDB",
+                "Docker"
+            ],
+            "features": [
+                "RAG-based document Q&A",
+                "End-to-end data encryption",
+                "Multi-format document support",
+                "Citation-backed responses"
+            ],
+            "gradient": "from-indigo-500 via-purple-400 to-pink-400"
+        },
+        {
+            "id": 8,
+            "title": "WikiQuiz - Wikipedia Quiz",
+            "label": "EDTECH + AI",
+            "color": "from-green-600",
+            "bg": "/Work/WikiQuiz.mp4",
+            "year": "2025",
+            "role": "Full-Stack Development",
+            "description": "An intelligent quiz generation platform that transforms any Wikipedia article into engaging, adaptive quizzes using AI, making knowledge testing fun and personalized.",
+            "techStack": [
+                "Next.js",
+                "Python",
+                "NVIDIA NIM",
+                "Tailwind CSS",
+                "Vercel"
+            ],
+            "features": [
+                "AI-powered quiz generation",
+                "Adaptive difficulty scaling",
+                "Performance analytics dashboard",
+                "Multi-topic quiz history"
+            ],
+            "gradient": "from-rose-500 via-pink-400 to-fuchsia-400"
+        }
+    ]
+}

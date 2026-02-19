@@ -2,18 +2,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import workData from "./work.json";
+import ProjectDetail from "./ProjectDetail";
 
-const projects = [
-    { id: 1, title: "EduMatrix", label: "EDTECH", color: "from-blue-600", bg: "https://images.unsplash.com/photo-1501504905953-f87550b1111a?q=80&w=2000" },
-    { id: 2, title: "VehicleAid", label: "LOGISTICS", color: "from-red-600", bg: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000" },
-    { id: 3, title: "eCard", label: "DIGITAL", color: "from-purple-600", bg: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=2000" },
-    { id: 4, title: "Project 4", label: "UI/UX", color: "from-yellow-600", bg: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2000" },
-    { id: 5, title: "Project 5", label: "MERN", color: "from-green-600", bg: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000" },
-];
+const projects = workData.projects;
 
 export default function PortfolioSection() {
     const [index, setIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
+    const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
     const lastScrollTime = useRef(0);
 
     useEffect(() => {
@@ -59,7 +56,7 @@ export default function PortfolioSection() {
             </AnimatePresence>
 
             {/* 2. HEADER */}
-            <header className="relative z-50 text-center space-y-2">
+            <header className="relative z-45 text-center space-y-2">
                 <motion.p
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -85,7 +82,7 @@ export default function PortfolioSection() {
                     if (relativeIndex < -2) relativeIndex += projects.length;
 
                     const isActive = relativeIndex === 0;
-                    const xFactor = isMobile ? 160 : 340;
+                    const xFactor = isMobile ? 200 : 340;
                     const yFactor = isMobile ? 25 : 55;
                     const rotationFactor = isMobile ? 18 : 28;
 
@@ -104,18 +101,21 @@ export default function PortfolioSection() {
                                 rotate: relativeIndex * rotationFactor,
                                 opacity: isMobile && Math.abs(relativeIndex) > 1 ? 0 : 1 - Math.abs(relativeIndex) * 0.25,
                                 scale: isActive ? 1.05 : 0.8,
-                                zIndex: isActive ? 50 : 20 - Math.abs(relativeIndex),
+                                zIndex: isActive ? 40 : 20 - Math.abs(relativeIndex),
                             }}
                             transition={{ type: "spring", stiffness: 180, damping: 25 }}
                             onClick={() => setIndex(i)}
-                            className={`absolute ${isMobile ? 'w-[260px] h-[380px]' : 'w-[340px] h-[480px]'} bg-[#0c0c14]/90 border border-white/10 rounded-[3rem] p-8 backdrop-blur-3xl cursor-grab active:cursor-grabbing flex flex-col`}
+                            className={`absolute ${isMobile ? 'w-[320px] h-[440px] p-6' : 'w-[450px] h-[480px] p-8'} bg-[#0c0c14]/90 border border-white/10 rounded-[3rem] backdrop-blur-3xl cursor-grab active:cursor-grabbing flex flex-col`}
                         >
-                            <div className={`w-full h-40 md:h-44 rounded-[2rem] bg-gradient-to-br ${projects[i].color} to-transparent opacity-40 mb-8 overflow-hidden`}>
-                                <img src={projects[i].bg} alt="" className="w-full h-full object-cover mix-blend-overlay" />
+                            <div className="w-full h-52 md:h-64 rounded-[2rem] overflow-hidden mb-6">
+                                <video src={projects[i].bg} muted autoPlay loop playsInline className="w-full h-full object-cover" />
                             </div>
                             <p className="text-blue-500 text-[10px] font-black tracking-[0.2em] uppercase mb-1">{projects[i].label}</p>
                             <h3 className="text-white text-3xl md:text-4xl font-bold tracking-tight mb-auto leading-none">{projects[i].title}</h3>
-                            <div className="mt-4 flex items-center gap-2 text-slate-500 text-xs font-medium uppercase tracking-widest">
+                            <div
+                                onClick={(e) => { e.stopPropagation(); setSelectedProject(projects[i]); }}
+                                className="mt-4 flex items-center gap-2 text-slate-500 text-xs font-medium uppercase tracking-widest hover:text-white transition-colors cursor-pointer"
+                            >
                                 view project <span>→</span>
                             </div>
                         </motion.div>
@@ -124,7 +124,7 @@ export default function PortfolioSection() {
             </div>
 
             {/* 4. FOOTER CONTROLS & PROGRESS */}
-            <footer className="relative z-50 w-full px-6 md:px-20 flex flex-col items-center gap-8">
+            <footer className="relative z-10 w-full px-6 md:px-20 flex flex-col items-center gap-8">
                 {/* Progress Dots */}
                 <div className="flex gap-3">
                     {projects.map((_, i) => (
@@ -149,6 +149,8 @@ export default function PortfolioSection() {
                     </button>
                 </div>
             </footer>
+            {/* Project Detail Modal */}
+            <ProjectDetail project={selectedProject} onClose={() => setSelectedProject(null)} />
         </div>
     );
 }

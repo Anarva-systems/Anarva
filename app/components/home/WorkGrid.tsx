@@ -6,34 +6,34 @@ import Image from "next/image";
 
 const PROJECTS = [
     {
-        title: "Nebula Stream",
-        category: "Platform",
-        image: "/projects/nebula.jpg", // Placeholder - using colors for now if image invalid
+        title: "Refino - AI Prompt Generator",
+        category: "AI Platform",
+        image: "/Work/Refino.mp4",
         color: "bg-blue-900"
     },
     {
-        title: "Vertex AI",
-        category: "Intelligence",
-        image: "/projects/vertex.jpg",
-        color: "bg-purple-900"
-    },
-    {
-        title: "Orbit Finance",
+        title: "Deriverse Trading Analytics",
         category: "Fintech",
-        image: "/projects/orbit.jpg",
+        image: "/Work/DeriverseTradingAnalytics.mp4",
         color: "bg-emerald-900"
     },
     {
-        title: "Cipher Labs",
+        title: "CyberSentinel.AI",
         category: "Security",
-        image: "/projects/cipher.jpg",
+        image: "/Work/CyberSentinel.ai.mp4",
         color: "bg-zinc-800"
+    },
+    {
+        title: "VendorSync",
+        category: "Intelligence",
+        image: "/Work/Vendorsync.mp4",
+        color: "bg-purple-900"
     }
 ];
 
 export default function WorkGrid() {
     return (
-        <section className="w-full py-32 px-6 md:px-12 bg-black text-white">
+        <section className="w-full py-16 md:py-32 px-4 md:px-12 bg-black text-white">
             <div className="max-w-7xl mx-auto mb-20 flex items-end justify-between">
                 <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">Selected Work</h2>
                 <Link href="/work" className="hidden md:block text-sm uppercase tracking-widest text-zinc-500 hover:text-white transition-colors">
@@ -52,9 +52,8 @@ export default function WorkGrid() {
                         transition={{ delay: idx * 0.1 }}
                     >
                         {/* Image Container */}
-                        <div className={`aspect-[4/3] w-full overflow-hidden bg-zinc-900 ${project.color} mb-6 transition-transform duration-700 ease-out group-hover:scale-[0.98]`}>
-                            {/* Placeholder for actual image */}
-                            <div className="w-full h-full opacity-50 mix-blend-overlay" />
+                        <div className={`aspect-video w-full overflow-hidden bg-zinc-900 ${project.color} mb-6 transition-transform duration-700 ease-out group-hover:scale-[0.98]`}>
+                            <video src={project.image} autoPlay loop muted playsInline className="w-full h-full object-cover" />
                         </div>
 
                         {/* Text */}

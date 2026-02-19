@@ -24,7 +24,7 @@ const SERVICES = [
 
 export default function ServicesList() {
     return (
-        <section className="w-full py-32 px-6 md:px-12 bg-black text-white border-t border-white/10">
+        <section className="w-full py-16 md:py-32 px-6 md:px-12 bg-black text-white border-t border-white/10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
                 <div>
                     <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-8">Our Expertise</h2>

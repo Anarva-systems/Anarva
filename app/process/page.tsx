@@ -36,7 +36,7 @@ export default function ProcessPage() {
             <div className="container mx-auto max-w-7xl">
 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row items-end justify-between mb-24 border-b border-white/10 pb-8">
+                <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-24 border-b border-white/10 pb-8">
                     <div>
                         <span className="block text-xs font-bold text-[var(--cyber-cyan)] uppercase tracking-widest mb-4 font-mono">
                             System Methodology
@@ -45,7 +45,7 @@ export default function ProcessPage() {
                             The <br /> Protocol.
                         </h1>
                     </div>
-                    <p className="text-zinc-400 text-lg font-light max-w-md text-right md:text-left mt-8 md:mt-0">
+                    <p className="text-zinc-400 text-lg font-light max-w-md text-left mt-8 md:mt-0">
                         Precision engineered workflows for rapid deployment and scalable growth.
                     </p>
                 </div>

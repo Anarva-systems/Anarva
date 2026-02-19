@@ -22,16 +22,16 @@ export default function AboutPage() {
                         <div className="text-sm text-zinc-500 uppercase tracking-wider">Years</div>
                     </div>
                     <div>
-                        <div className="text-4xl font-bold text-white mb-2">10+</div>
+                        <div className="text-4xl font-bold text-white mb-2">15+</div>
                         <div className="text-sm text-zinc-500 uppercase tracking-wider">Projects</div>
                     </div>
                     <div>
-                        <div className="text-4xl font-bold text-white mb-2">1m+</div>
-                        <div className="text-sm text-zinc-500 uppercase tracking-wider">Users Reached</div>
+                        <div className="text-4xl font-bold text-white mb-2">12+</div>
+                        <div className="text-sm text-zinc-500 uppercase tracking-wider">Countries Serving</div>
                     </div>
                     <div>
-                        <div className="text-4xl font-bold text-white mb-2">100%</div>
-                        <div className="text-sm text-zinc-500 uppercase tracking-wider">Success Rate</div>
+                        <div className="text-4xl font-bold text-white mb-2">98%</div>
+                        <div className="text-sm text-zinc-500 uppercase tracking-wider">Client Retention</div>
                     </div>
                 </div>
 

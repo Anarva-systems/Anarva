@@ -54,7 +54,7 @@ export default function SubmitRequirementsLight() {
     };
 
     return (
-        <main className="min-h-screen bg-black pt-32 pb-20 px-6 text-white selection:bg-[#00e6ff] selection:text-black">
+        <main className="min-h-screen bg-black pt-24 md:pt-32 pb-20 px-6 text-white selection:bg-[#00e6ff] selection:text-black">
             {/* Subtle Texture: Gallery Grid - White Dots for Dark Mode */}
             {/* <div className="fixed inset-0 opacity-[0.05] pointer-events-none"
                 style={{ backgroundImage: `linear-gradient(#fff 1.1px, transparent 1.1px), linear-gradient(90deg, #fff 1.1px, transparent 1.1px)`, backgroundSize: '40px 40px' }} /> */}
@@ -67,7 +67,7 @@ export default function SubmitRequirementsLight() {
                         <Command className="w-3 h-3" /> Initialization / Phase 01
                     </motion.div>
                     <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                        className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 leading-[0.85]">
+                        className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 leading-[0.85]">
                         Build the <span className="text-zinc-500 italic">future</span> <br /> with us.
                     </motion.h1>
                 </div>

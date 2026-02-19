@@ -6,21 +6,21 @@ import Link from "next/link";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex flex-col justify-center bg-black text-white px-6 md:px-12 py-24 overflow-hidden">
+        <section className="relative min-h-screen flex flex-col justify-center bg-black text-white px-6 md:px-12 py-16 md:py-24 overflow-hidden">
             {/* Background Texture */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E")` }}
             />
 
             <div className="max-w-7xl mx-auto w-full z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* LEFT: content */}
-                <div>
+                {/* LEFT: content (Order 2 on mobile, 1 on desktop) */}
+                <div className="order-2 lg:order-1">
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        <h1 className="text-[12vw] lg:text-[6vw] leading-[0.9] font-bold tracking-tighter mb-8">
+                        <h1 className="text-[12vw] md:text-[8vw] lg:text-[6vw] leading-[0.9] font-bold tracking-tight mb-8 font-sans">
                             <span className="block text-zinc-500">We build</span>
                             <span className="block text-white">digital reality.</span>
                         </h1>
@@ -39,28 +39,26 @@ export default function Hero() {
                     </motion.div>
                 </div>
 
-                {/* RIGHT: Video */}
+                {/* RIGHT: Video (Order 1 on mobile, 2 on desktop) */}
                 <motion.div
-                    className="relative w-full aspect-[4/3] lg:aspect-square rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/10"
+                    className="order-1 lg:order-2 relative w-full aspect-[4/3] lg:aspect-square rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/10"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
                 >
                     {/* Placeholder Video / Image */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-zinc-900">
+                    {/* <div className="absolute inset-0 flex items-center justify-center bg-zinc-900">
                         <span className="text-zinc-700 font-mono text-sm uppercase tracking-widest">Introduction Video</span>
-                    </div>
-                    {/* 
-                     Uncomment and replace 'src' when you have the video file.
-                     <video 
-                        src="/hero-video.mp4" 
-                        autoPlay 
-                        muted 
-                        loop 
+                    </div> */}
+                    <video
+                        src="/intro.mp4"
+                        autoPlay
+                        muted
+                        loop
                         playsInline
                         className="absolute inset-0 w-full h-full object-cover"
-                     />
-                     */}
+                    />
+
                 </motion.div>
             </div>
 

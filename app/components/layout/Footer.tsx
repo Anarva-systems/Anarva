@@ -28,10 +28,10 @@ const FOOTER_NAV: { title: string; links: FooterLink[] }[] = [
     },
     {
         title: "Socials", links: [
-            { name: "Twitter", href: "#", icon: Twitter },
-            { name: "LinkedIn", href: "#", icon: Linkedin },
-            { name: "Instagram", href: "#", icon: Instagram },
-            { name: "GitHub", href: "#", icon: Github },
+            { name: "Twitter", href: "https://x.com/AnarvaS55263", icon: Twitter },
+            { name: "LinkedIn", href: "https://www.linkedin.com/in/anarva-systems-1865163b1/", icon: Linkedin },
+            { name: "Instagram", href: "https://www.instagram.com/anarva_systems/", icon: Instagram },
+            { name: "GitHub", href: "https://github.com/Anarva-systems", icon: Github },
         ]
     }
 ];
@@ -48,7 +48,7 @@ export default function Footer() {
                 {/* 1. CTA Section */}
                 <div className="flex flex-col md:flex-row justify-between items-start mb-32">
                     <div className="max-w-2xl">
-                        <h2 className="text-6xl md:text-8xl font-bold text-white tracking-tighter mb-8 leading-[0.9]">
+                        <h2 className="text-5xl md:text-8xl font-bold text-white tracking-tighter mb-8 leading-[0.9]">
                             Ready to <br />
                             <span className="text-zinc-500 italic font-serif">transcend?</span>
                         </h2>

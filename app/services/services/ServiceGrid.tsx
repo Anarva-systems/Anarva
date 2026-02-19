@@ -50,9 +50,9 @@ const SERVICES = [
 
 export function ServiceGrid() {
     return (
-        <section id="services" className="py-32 bg-transparent border-b border-white/10">
+        <section id="services" className="py-16 md:py-32 bg-transparent border-b border-white/10">
             <div className="container mx-auto px-6 max-w-7xl">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
                     <h2 className="text-5xl md:text-6xl font-bold text-white font-geist tracking-tighter max-w-xl leading-[0.95]">
                         Holistic <br /> Digital Systems.
                     </h2>
@@ -78,7 +78,7 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.05, duration: 0.5 }}
-            className="group relative bg-white/5 p-10 border border-white/10 -ml-[1px] -mt-[1px] hover:z-10 hover:border-white/30 transition-colors backdrop-blur-sm"
+            className="group relative bg-white/5 p-6 md:p-10 border border-white/10 -ml-[1px] -mt-[1px] hover:z-10 hover:border-white/30 transition-colors backdrop-blur-sm"
         >
             <div className="flex justify-between items-start mb-8">
                 <span className="text-xs font-mono text-zinc-500 font-bold tracking-widest">{service.id}</span>

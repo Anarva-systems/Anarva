@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import GlobalIntro from "./components/ui/GlobalIntro";
-
+import Chatbot from "./components/Chatbot"
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
   display: "swap",
 });
@@ -73,6 +79,7 @@ export default function RootLayout({
         className={`
           ${inter.variable} 
           ${jetbrainsMono.variable} 
+          ${syne.variable}
           antialiased 
           bg-[#0a0a0f] 
           text-slate-50 
@@ -93,6 +100,7 @@ export default function RootLayout({
         <div className="flex-1 relative">
           {children}
           <Footer />
+          <Chatbot />
         </div>
       </body>
     </html>

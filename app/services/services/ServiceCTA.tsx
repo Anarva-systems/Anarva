@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function ServiceCTA() {
     return (
-        <section className="py-32 bg-transparent flex items-center justify-center">
+        <section className="py-20 md:py-32 bg-transparent flex items-center justify-center">
             <div className="container mx-auto px-6 max-w-4xl text-center">
 
                 <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 font-geist tracking-tighter leading-[0.9]">
@@ -25,10 +25,10 @@ export function ServiceCTA() {
                         <ArrowRight className="w-4 h-4" />
                     </Link>
                     <a
-                        href="mailto:hello@anarva.com"
+                        href="mailto:ashapumohan7@gmail.com"
                         className="px-8 py-4 bg-transparent text-white font-medium rounded-full hover:bg-white/10 transition-colors flex items-center justify-center gap-3 border border-white/20 w-fit"
                     >
-                        hello@anarva.com
+                        Say Hello
                     </a>
                 </div>
             </div>

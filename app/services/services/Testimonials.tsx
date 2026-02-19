@@ -22,7 +22,7 @@ const REVIEWS = [
 
 export function Testimonials() {
     return (
-        <section className="py-32 border-b border-white/10">
+        <section className="py-16 md:py-32 border-b border-white/10">
             <div className="container mx-auto px-6 max-w-7xl">
                 <h2 className="text-xs font-mono font-bold text-zinc-500 tracking-widest uppercase mb-16 px-1">
                     Perspectives
