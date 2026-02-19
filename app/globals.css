@@ -1,25 +1,34 @@
 @import "tailwindcss";
 
-/* ===== ANARVA DESIGN DNA ===== */
+/* ===== ANARVA DESIGN DNA: PRECISION ENGINEERING ===== */
 :root {
-  /* Obsidian Palette */
-  --obsidian: #0a0a0f;
-  --obsidian-deep: #050507;
-  --ghost-white: #f8fafc;
-  --cyber-cyan: #00e6ff;
-  --solar-flare: rgba(255, 215, 0, 0.15);
-  --void-purple: #7b00ff;
+  /* Technical Palette */
+  --obsidian: #030303;
+  /* Deepest Black */
+  --carbon: #121212;
+  /* Matte Dark Gray */
+  --steel: #2a2a2a;
+  /* Dark Metal */
+  --chrome: #e0e0e0;
+  /* Cold White/Silver */
+  --signal-white: #ffffff;
+  /* Pure White */
 
-  /* Semantic Map */
+  /* Semantic Map (Overriding previous cosmic values) */
   --background: var(--obsidian);
-  --foreground: var(--ghost-white);
-  --accent-primary: var(--cyber-cyan);
-  --accent-secondary: var(--solar-flare);
+  --foreground: var(--chrome);
+  --accent-primary: var(--signal-white);
+  --accent-secondary: var(--carbon);
+
+  /* Legacy mapping for compatibility (desaturated) */
+  --cyber-cyan: #ffffff;
+  --void-purple: #333333;
+  --solar-flare: rgba(255, 255, 255, 0.1);
 
   /* Effects */
-  --glass-panel: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --neon-glow: 0 0 20px rgba(0, 230, 255, 0.3);
+  --glass-panel: rgba(255, 255, 255, 0.02);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --tech-glow: 0 0 10px rgba(255, 255, 255, 0.15);
 }
 
 /* ===== RESET & BASE ===== */
@@ -34,12 +43,13 @@ html {
 
 body {
   background: var(--obsidian);
-  color: var(--ghost-white);
+  color: var(--foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  /* Slightly wider for technical feel */
 }
 
 h1,
@@ -49,312 +59,155 @@ h4,
 h5,
 h6 {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  /* Tight tracking for display */
-  color: var(--ghost-white);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--signal-white);
 }
 
 .font-mono {
   font-family: var(--font-mono), monospace;
 }
 
-/* ===== TYPOGRAPHY UTILITIES ===== */
-.text-gradient-cosmic {
-  background: linear-gradient(135deg, var(--cosmic-blue) 0%, var(--cosmic-purple) 50%, var(--cosmic-violet) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+/* ===== UTILITIES: PRECISION ===== */
 
-.text-metallic {
-  background: linear-gradient(180deg, #ffffff 0%, #c0c0c0 50%, #808080 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-}
-
-/* ===== GLASSMORPHISM ===== */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+/* Technical Hairlines */
+.tech-border {
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.5rem;
 }
 
-.glass-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(0, 212, 255, 0.3);
-  box-shadow: var(--glow-blue);
+.tech-border-t {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ===== GLOW EFFECTS ===== */
-.glow-blue {
-  box-shadow: var(--glow-blue);
+.tech-border-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.glow-purple {
-  box-shadow: var(--glow-purple);
+/* Crosshair Marker (+) */
+.crosshair-marker {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  z-index: 20;
 }
 
-.glow-text {
-  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(123, 0, 255, 0.3);
-}
-
-/* ===== COSMIC BUTTON ===== */
-.btn-cosmic {
-  position: relative;
-  padding: 1rem 2rem;
-  background: linear-gradient(135deg, var(--cosmic-blue) 0%, var(--cosmic-purple) 100%);
-  border: none;
-  border-radius: 9999px;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.btn-cosmic::before {
+.crosshair-marker::before,
+.crosshair-marker::after {
   content: '';
   position: absolute;
-  inset: -2px;
-  background: linear-gradient(135deg, var(--cosmic-blue) 0%, var(--cosmic-purple) 50%, var(--cosmic-blue) 100%);
+  background: rgba(255, 255, 255, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.crosshair-marker::before {
+  width: 100%;
+  height: 1px;
+}
+
+/* Horizontal */
+.crosshair-marker::after {
+  width: 1px;
+  height: 100%;
+}
+
+/* Vertical */
+
+/* Spotlight Effect */
+.spotlight {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  z-index: 5;
+}
+
+/* Chrome Text */
+.text-chrome {
+  background: linear-gradient(180deg, #fff 0%, #888 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Bento Tile - Technical */
+.bento-tile {
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0;
+  /* Sharp corners or minimal radius */
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.bento-tile:hover {
+  background: rgba(15, 15, 15, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Fluid Border - Monochrome */
+.fluid-border {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.fluid-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(255, 255, 255, 0.4) 90deg, transparent 180deg);
+  animation: rotate 4s linear infinite;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.fluid-border::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: var(--obsidian);
   border-radius: inherit;
   z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  filter: blur(15px);
 }
 
-.btn-cosmic:hover::before {
-  opacity: 1;
-}
-
-.btn-cosmic:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
-}
-
-/* ===== ANIMATIONS ===== */
-
-/* Floating Animation */
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
   }
 
-  25% {
-    transform: translateY(-10px) rotate(1deg);
-  }
-
-  50% {
-    transform: translateY(-20px) rotate(0deg);
-  }
-
-  75% {
-    transform: translateY(-10px) rotate(-1deg);
+  to {
+    transform: rotate(360deg);
   }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-slow {
-  animation: float 8s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: float 6s ease-in-out infinite 2s;
-}
-
-/* Glow Pulse */
-@keyframes glow-pulse {
-
-  0%,
-  100% {
-    opacity: 0.5;
-    filter: blur(40px);
-  }
-
-  50% {
-    opacity: 0.8;
-    filter: blur(60px);
-  }
-}
-
-.animate-glow-pulse {
-  animation: glow-pulse 4s ease-in-out infinite;
-}
-
-/* Star Twinkle */
-@keyframes twinkle {
-
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
-}
-
-.animate-twinkle {
-  animation: twinkle 3s ease-in-out infinite;
-}
-
-/* Comet Trail */
-@keyframes comet {
-  0% {
-    transform: translateX(-100%) translateY(100%);
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(200%) translateY(-100%);
-    opacity: 0;
-  }
-}
-
-.animate-comet {
-  animation: comet 3s ease-out infinite;
-}
-
-/* Orbit */
-@keyframes orbit {
-  0% {
-    transform: rotate(0deg) translateX(10px) rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg) translateX(10px) rotate(-360deg);
-  }
-}
-
-.animate-orbit {
-  animation: orbit 20s linear infinite;
-}
-
-/* Shimmer */
-@keyframes shimmer {
-  0% {
-    background-position: -200% center;
-  }
-
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.text-shimmer {
-  background: linear-gradient(90deg, var(--cosmic-blue), var(--cosmic-purple), var(--cosmic-blue));
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 5s linear infinite;
-}
-
-/* Magnetic Hover */
-@keyframes magnetic-pulse {
-
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-/* ===== SCROLLBAR ===== */
-::-webkit-scrollbar {
+/* Pulse Dot - Technical Green */
+.pulse-status {
   width: 6px;
+  height: 6px;
+  background-color: #00ff41;
+  /* CRT Green */
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
 }
 
-::-webkit-scrollbar-track {
-  background: var(--cosmic-black);
+/* Section Index (01, 02...) */
+.section-index {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--cosmic-blue), var(--cosmic-purple));
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--cosmic-purple), var(--cosmic-blue));
-}
-
-/* ===== SELECTION ===== */
-::selection {
-  background: rgba(123, 0, 255, 0.3);
-  color: white;
-}
-
-/* ===== UTILITY CLASSES ===== */
-.cosmic-gradient-bg {
-  background: linear-gradient(135deg, var(--cosmic-black) 0%, var(--cosmic-deep) 50%, var(--cosmic-navy) 100%);
-}
-
-.cosmic-border {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.cosmic-border-glow {
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.1);
-}
-
-/* Noise Overlay for Film Grain */
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.03;
-  z-index: 9999;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
-/* Responsive Typography */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 3rem;
-    line-height: 1.1;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-}
-
-/* Focus States for Accessibility */
-*:focus-visible {
-  outline: 2px solid var(--cosmic-blue);
-  outline-offset: 2px;
-}
-
-/* Reduced Motion */
+/* Standard animation updates */
 @media (prefers-reduced-motion: reduce) {
 
   *,
@@ -364,4 +217,205 @@ h6 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ===== HERO: BENTO GRID ===== */
+
+/* Grain scroll animation */
+@keyframes grain-scroll {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-5%, -10%);
+  }
+
+  20% {
+    transform: translate(-15%, 5%);
+  }
+
+  30% {
+    transform: translate(7%, -25%);
+  }
+
+  40% {
+    transform: translate(-5%, 25%);
+  }
+
+  50% {
+    transform: translate(-15%, 10%);
+  }
+
+  60% {
+    transform: translate(15%, 0%);
+  }
+
+  70% {
+    transform: translate(0%, 15%);
+  }
+
+  80% {
+    transform: translate(3%, 35%);
+  }
+
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+.animate-grain {
+  animation: grain-scroll 8s steps(10) infinite;
+}
+
+/* Aurora ambient gradient */
+@keyframes aurora {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.3;
+  }
+
+  25% {
+    opacity: 0.5;
+  }
+
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.3;
+  }
+
+  75% {
+    opacity: 0.5;
+  }
+
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.3;
+  }
+}
+
+.animate-aurora {
+  background-size: 400% 400%;
+  animation: aurora 15s ease infinite;
+}
+
+/* Pulse dot for availability */
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.pulse-ring {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Bento Tile Glassmorphism */
+.bento-tile {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.5rem;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bento-tile:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(0, 230, 255, 0.15);
+  box-shadow: 0 0 40px rgba(0, 230, 255, 0.06), inset 0 0 40px rgba(0, 230, 255, 0.03);
+}
+
+/* Fluid gradient border CTA */
+.fluid-border {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+.fluid-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--cyber-cyan), var(--void-purple), var(--cyber-cyan));
+  background-size: 300% 300%;
+  animation: aurora 4s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.fluid-border:hover::before {
+  animation-duration: 1.5s;
+  background-size: 200% 200%;
+}
+
+/* Hero stat counter digit */
+@keyframes count-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Line reveal from left */
+@keyframes line-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.animate-line-reveal {
+  animation: line-reveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* ===== SCROLLBAR: PRECISION TECHNICAL (Global Forced) ===== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030303;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 0;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #333 #030303;
 }
