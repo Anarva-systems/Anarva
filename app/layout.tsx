@@ -4,7 +4,8 @@ import "./globals.css";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import GlobalIntro from "./components/ui/GlobalIntro";
-import Chatbot from "./components/Chatbot"
+import Chatbot from "./components/Chatbot";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -116,6 +117,8 @@ export default function RootLayout({
             })
           }}
         />
+
+
 
         {/* Global Splash Screen */}
         <GlobalIntro />

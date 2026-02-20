@@ -134,32 +134,49 @@ function StatsTicker() {
 /* ─────────────────────────────────────────────
    THREE.JS - DARK CHROME CORE
    ───────────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   THREE.JS - DARK CHROME CORE (INTERACTIVE)
+   ───────────────────────────────────────────── */
 function ChromeCore() {
     const meshRef = useRef<THREE.Mesh>(null!);
     const { pointer } = useThree();
+    const [hovered, setHover] = useState(false);
+    const [active, setActive] = useState(false);
 
-    useFrame((_, delta) => {
+    useFrame((state, delta) => {
         if (!meshRef.current) return;
-        meshRef.current.rotation.x += delta * 0.1;
-        meshRef.current.rotation.y += delta * 0.12;
 
-        // Subtle precise tilt
+        // Dynamic rotation speed based on interaction
+        const speed = active ? 2.0 : (hovered ? 0.5 : 0.1);
+        meshRef.current.rotation.x += delta * speed;
+        meshRef.current.rotation.y += delta * (speed * 1.2);
+
+        // Subtle precise tilt following mouse
         meshRef.current.rotation.z = THREE.MathUtils.lerp(
             meshRef.current.rotation.z,
             pointer.x * 0.2,
             0.05
         );
-        meshRef.current.rotation.x = THREE.MathUtils.lerp(
-            meshRef.current.rotation.x,
-            pointer.y * 0.2,
-            0.05
-        );
+
+        // Pulse effect when active
+        if (active) {
+            const scale = 2 + Math.sin(state.clock.elapsedTime * 10) * 0.1;
+            meshRef.current.scale.setScalar(scale);
+        } else {
+            meshRef.current.scale.lerp(new THREE.Vector3(2, 2, 2), 0.1);
+        }
     });
 
     return (
-        <Float speed={1.2} rotationIntensity={0.2} floatIntensity={0.4}>
+        <Float speed={hovered ? 2 : 1.2} rotationIntensity={hovered ? 0.5 : 0.2} floatIntensity={0.4}>
             {/* Main Dark Chrome Core */}
-            <mesh ref={meshRef} scale={2}>
+            <mesh
+                ref={meshRef}
+                scale={2}
+                onPointerOver={() => setHover(true)}
+                onPointerOut={() => setHover(false)}
+                onClick={() => setActive(!active)}
+            >
                 <icosahedronGeometry args={[1, 0]} />
                 <MeshTransmissionMaterial
                     backside
@@ -169,9 +186,9 @@ function ChromeCore() {
                     roughness={0.2}
                     thickness={0.5}
                     ior={1.5}
-                    chromaticAberration={0.05} // Reduced for cleaner look
+                    chromaticAberration={hovered || active ? 0.2 : 0.05} // Glitch on interaction
                     anisotropy={0.1}
-                    color="#1a1a1a" // Dark Carbon
+                    color={active ? "#222" : "#1a1a1a"} // Slight color shift on click
                     metalness={0.8}
                 />
             </mesh>
@@ -181,9 +198,9 @@ function ChromeCore() {
                 <icosahedronGeometry args={[1, 0]} />
                 <meshBasicMaterial
                     wireframe
-                    color="#444"
+                    color={hovered ? "#fff" : "#444"} // Brighten wireframe on hover
                     transparent
-                    opacity={0.15}
+                    opacity={hovered ? 0.3 : 0.15}
                 />
             </mesh>
         </Float>
@@ -320,16 +337,7 @@ export default function Hero() {
                         <span className="font-mono text-[10px] text-zinc-600 tracking-[0.2em]">FIG. 001 — CORE</span>
                     </div>
 
-                    {isMobile ? (
-                        <div className="w-full h-full flex items-center justify-center">
-                            <div className="w-48 h-48 rounded-full border border-white/10 relative animate-spin-slow">
-                                <div className="absolute inset-4 border border-white/5 rounded-full" />
-                                <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent rounded-full" />
-                            </div>
-                        </div>
-                    ) : (
-                        <Scene3D />
-                    )}
+                    <Scene3D />
                 </motion.div>
 
                 {/* ────────── 03: METRICS (Span 4) ────────── */}
