@@ -75,8 +75,8 @@ function AnimatedCounter({
    STATS TICKER - PRECISION STYLE
    ───────────────────────────────────────────── */
 const STATS = [
-    { value: 99.9, suffix: "%", label: "SYSTEM STABILITY" },
-    { value: 50, suffix: "+", label: "DEPLOYED UNITS" },
+    { value: 99, suffix: "%", label: "SYSTEM STABILITY" },
+    { value: 15, suffix: "+", label: "DEPLOYED UNITS" },
     { value: 12, suffix: "+", label: "ACTIVE PARTNERS" },
 ];
 

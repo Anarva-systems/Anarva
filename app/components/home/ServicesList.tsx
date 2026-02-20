@@ -8,19 +8,24 @@ import KineticSectionTitle from "../ui/KineticSectionTitle";
 
 const SERVICES = [
     {
-        title: "STRATEGY & ARCHITECTURE",
-        description: "We define high-performance digital roadmaps, aligning technical infrastructure with market positioning.",
-        tags: ["DISCOVERY", "USER RESEARCH", "SCALABILITY MAPPING"]
+        title: "UI/UX DESIGN & PRODUCT ARCHITECTURE",
+        description: "High-end product architecture and UI/UX design for SaaS and web apps. We blend user strategy with conversion-focused aesthetics.",
+        tags: ["UI/UX AGENCY", "SAAS PRODUCT DESIGN", "UX STRATEGY"]
     },
     {
-        title: "INTERFACE DESIGN",
-        description: "Crafting precision-engineered user interfaces with emphasis on interaction density and visual hierarchy.",
-        tags: ["DESIGN SYSTEMS", "MOTION PHYSICS", "3D VISUALIZATION"]
+        title: "AI INFRASTRUCTURE & RAG PIPELINES",
+        description: "Custom AI agent development and LLM integration services. We build autonomous RAG pipelines and fine-tune models for enterprise automation.",
+        tags: ["AI AUTOMATION", "LLM INTEGRATION", "RAG DEVELOPMENT"]
     },
     {
-        title: "FULL-STACK ENGINEERING",
-        description: "Building robust, scalable applications using next-generation frameworks and decentralized technologies.",
-        tags: ["NEXT.JS / REACT", "WEB3 PROTOCOLS", "REAL-TIME SYSTEMS"]
+        title: "FULL STACK & WEB3 ENGINEERING",
+        description: "Elite React, Next.js, and Node.js development coupled with decentralized Web3 protocols and smart contract engineering.",
+        tags: ["NEXT.JS EXPERTS", "WEB3 DEVELOPMENT", "SMART CONTRACTS"]
+    },
+    {
+        title: "GROWTH PROTOCOLS & SECURITY",
+        description: "Technical SEO, performance optimization, and rigorous smart contract audits to scale and secure your digital ecosystem.",
+        tags: ["TECHNICAL SEO", "SECURITY AUDITS", "GROWTH OPTIMIZATION"]
     }
 ];
 

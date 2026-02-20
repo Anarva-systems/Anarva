@@ -27,40 +27,49 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://anarva.tech"),
   title: {
-    default: "ANARVA - Enter Orbit",
+    default: "ANARVA Digital Architecture Studio | UI/UX, AI Infrastructure, Full Stack & Web3 Development",
     template: "%s | ANARVA",
   },
-  description: "Elite architects of web, apps, AI, product design, and Web3. The gateway to digital transcendence.",
+  description: "ANARVA Digital Architecture Studio provides UI/UX design, AI infrastructure, RAG pipelines, full-stack development, Web3, security audits, and growth-focused SEO solutions.",
   keywords: [
-    "digital architecture",
-    "web development",
-    "AI solutions",
-    "Web3",
-    "product design",
-    "Next.js",
-    "premium agency"
+    "UI/UX Design Agency",
+    "Product Architecture",
+    "AI Development Company",
+    "RAG Pipeline Development",
+    "LLM Integration",
+    "Next.js Development Agency",
+    "React Development Company",
+    "Node.js Experts",
+    "Web3 Development",
+    "Smart Contract Development",
+    "DApp Development",
+    "Technical SEO Agency",
+    "Security Audit Company",
+    "Penetration Testing Services",
+    "Growth Optimization Agency"
   ],
-  authors: [{ name: "ANARVA" }],
-  creator: "ANARVA",
+  authors: [{ name: "ANARVA Digital Architecture Studio" }],
+  creator: "ANARVA Digital Architecture Studio",
+  robots: "index, follow",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://anarva.tech",
-    siteName: "ANARVA",
-    title: "ANARVA - Enter Orbit",
-    description: "Digital Architecture Firm. Web - Apps - AI - Product - Web3.",
+    siteName: "ANARVA Digital Architecture Studio",
+    title: "ANARVA Digital Architecture Studio",
+    description: "High-end UI/UX, AI systems, Full-Stack Engineering & Web3 Development.",
     images: [{
-      url: "/og-image-home.jpg",
+      url: "/og-image-home.png",
       width: 1200,
       height: 630,
-      alt: "ANARVA - Enter Orbit",
+      alt: "ANARVA Digital Architecture Studio",
     }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ANARVA - Enter Orbit",
-    description: "Digital Architecture Firm. Web - Apps - AI - Product - Web3.",
-    images: ["/og-image-home.jpg"],
+    title: "ANARVA Digital Architecture Studio",
+    description: "High-end UI/UX, AI systems, Full-Stack Engineering & Web3 Development.",
+    images: ["/og-image-home.png"],
   },
   icons: {
     icon: "/icon.png",
@@ -90,6 +99,24 @@ export default function RootLayout({
           selection:text-black
         `}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "ANARVA Digital Architecture Studio",
+              "url": "https://anarva.tech",
+              "logo": "https://anarva.tech/logo.png",
+              "description": "UI/UX, AI Infrastructure, Full Stack Development & Web3 Agency",
+              "sameAs": [
+                "https://linkedin.com/company/anarva",
+                "https://x.com/AnarvaS55263"
+              ]
+            })
+          }}
+        />
+
         {/* Global Splash Screen */}
         <GlobalIntro />
 
