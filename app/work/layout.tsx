@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Our Work - Curated Digital Experiences",
         description: "Explore premium digital solutions we've crafted for industry leaders",
-        url: "https://anarva.tech/work",
+        url: "https://anarva.online/work",
         siteName: "Anarva Systems",
         images: [{
             url: "/og-image-work.jpg",

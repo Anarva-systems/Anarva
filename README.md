@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <a href="https://anarva.tech">Live Site</a> ·
-  <a href="mailto:hello@anarva.tech">Contact</a>
+  <a href="https://anarva.online">Live Site</a> ·
+  <a href="mailto:hello@anarva.online">Contact</a>
 </p>
 
 <p align="center">
@@ -52,7 +52,7 @@
 ## 🗂️ Site Architecture
 
 ```
-anarva.tech
+anarva.online
 ├── /                   → Homepage (Hero + Selected Work + Services)
 ├── /services           → Full service grid, testimonials, why-choose-us, CTA
 ├── /process            → "The Protocol" — 5-step development methodology
@@ -209,7 +209,7 @@ Create a `.env.local` file in the project root:
 EMAIL_HOST=smtp.example.com
 EMAIL_USER=your-email@example.com
 EMAIL_PASS=your-app-password
-EMAIL_TO=hello@anarva.tech
+EMAIL_TO=hello@anarva.online
 ```
 
 ### Development
@@ -296,5 +296,5 @@ This project is **proprietary**. All rights reserved by ANARVA Systems.
 ---
 
 <p align="center">
-  <sub>Built with ◆ by <strong>ANARVA</strong> — <a href="https://anarva.tech">anarva.tech</a></sub>
+  <sub>Built with ◆ by <strong>ANARVA</strong> — <a href="https://anarva.online">anarva.online</a></sub>
 </p>

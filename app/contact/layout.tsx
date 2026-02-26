@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Start Your Project with Anarva",
         description: "Submit your project requirements and let's build something amazing together",
-        url: "https://anarva.tech/submit-requirements",
+        url: "https://anarva.online/submit-requirements",
         siteName: "Anarva Systems",
         type: "website",
     },

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "About Anarva Systems - Digital Product Studio",
         description: "Bridging heavy engineering and delicate design since day one",
-        url: "https://anarva.tech/about",
+        url: "https://anarva.online/about",
         siteName: "Anarva Systems",
         type: "website",
     },
