@@ -126,7 +126,15 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                             initial="hidden"
                             animate="visible"
                             className="relative w-full aspect-video rounded-[2rem] overflow-hidden mb-10 group"
+                            itemScope
+                            itemType="https://schema.org/VideoObject"
                         >
+                            <meta itemProp="name" content={`${project.title} Case Study`} />
+                            <meta itemProp="description" content={`Case study video for the ${project.title} project by Anarva.`} />
+                            <meta itemProp="thumbnailUrl" content={`https://www.anarva.online${project.bg}`} />
+                            <meta itemProp="contentUrl" content={`https://www.anarva.online${project.bg}`} />
+                            <meta itemProp="uploadDate" content={project.year ? `${project.year}-01-01T08:00:00+08:00` : "2024-01-01T08:00:00+08:00"} />
+
                             {/* Video */}
                             <video
                                 src={project.bg}

@@ -69,14 +69,22 @@ export default function WorkGrid() {
                             {/* Scanline Overlay */}
                             <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-[2] bg-[length:100%_2px,3px_100%] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
 
-                            <video
-                                src={project.image}
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className="w-full h-full object-cover opacity-60 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-700 ease-out scale-105 group-hover:scale-100"
-                            />
+                            {/* Schema.org VideoObject Wrapper */}
+                            <div itemScope itemType="https://schema.org/VideoObject" className="w-full h-full">
+                                <meta itemProp="name" content={`${project.title} Demonstration`} />
+                                <meta itemProp="description" content={`Video showcasing the ${project.title} project by Anarva.`} />
+                                <meta itemProp="thumbnailUrl" content={`https://www.anarva.online${project.image}`} />
+                                <meta itemProp="contentUrl" content={`https://www.anarva.online${project.image}`} />
+                                <meta itemProp="uploadDate" content="2024-01-01T08:00:00+08:00" />
+                                <video
+                                    src={project.image}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-700 ease-out scale-105 group-hover:scale-100"
+                                />
+                            </div>
                         </div>
 
                         {/* Technical Metadata */}

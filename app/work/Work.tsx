@@ -107,7 +107,12 @@ export default function PortfolioSection() {
                             onClick={() => setIndex(i)}
                             className={`absolute ${isMobile ? 'w-[320px] h-[440px] p-6' : 'w-[450px] h-[480px] p-8'} bg-[#0c0c14]/90 border border-white/10 rounded-[3rem] backdrop-blur-3xl cursor-grab active:cursor-grabbing flex flex-col`}
                         >
-                            <div className="w-full h-52 md:h-64 rounded-[2rem] overflow-hidden mb-6">
+                            <div className="w-full h-52 md:h-64 rounded-[2rem] overflow-hidden mb-6" itemScope itemType="https://schema.org/VideoObject">
+                                <meta itemProp="name" content={`${projects[i].title} Workflow`} />
+                                <meta itemProp="description" content={`Video workflow for ${projects[i].title}`} />
+                                <meta itemProp="thumbnailUrl" content={`https://www.anarva.online${projects[i].bg}`} />
+                                <meta itemProp="contentUrl" content={`https://www.anarva.online${projects[i].bg}`} />
+                                <meta itemProp="uploadDate" content="2024-01-01T08:00:00+08:00" />
                                 <video src={projects[i].bg} muted autoPlay loop playsInline className="w-full h-full object-cover" />
                             </div>
                             <p className="text-blue-500 text-[10px] font-black tracking-[0.2em] uppercase mb-1">{projects[i].label}</p>
