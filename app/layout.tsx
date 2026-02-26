@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://anarva.tech"),
+  metadataBase: new URL("https://anarva.online"),
   title: {
     default: "ANARVA Digital Architecture Studio | UI/UX, AI Infrastructure, Full Stack & Web3 Development",
     template: "%s | ANARVA",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://anarva.tech",
+    url: "https://anarva.online",
     siteName: "ANARVA Digital Architecture Studio",
     title: "ANARVA Digital Architecture Studio",
     description: "High-end UI/UX, AI systems, Full-Stack Engineering & Web3 Development.",
@@ -107,11 +107,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "ANARVA Digital Architecture Studio",
-              "url": "https://anarva.tech",
-              "logo": "https://anarva.tech/logo.png",
+              "url": "https://anarva.online",
+              "logo": "https://anarva.online/logo.png",
               "description": "UI/UX, AI Infrastructure, Full Stack Development & Web3 Agency",
               "sameAs": [
-                "https://linkedin.com/company/anarva",
+                "https://linkedin.com/in/anarva-systems-1865163b1",
                 "https://x.com/AnarvaS55263"
               ]
             })

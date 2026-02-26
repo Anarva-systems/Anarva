@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "standalone", // <--- ADD THIS LINE
   turbopack: {
     root: __dirname,
   },
