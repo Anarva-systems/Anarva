@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://anarva.online'
+    const baseUrl = 'https://www.anarva.online'
 
     // Common routes in the application
     const routes = [

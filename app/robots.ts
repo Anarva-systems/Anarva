@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: ['/api/', '/admin/'], // Adjust these paths if you have internal routes
         },
-        sitemap: 'https://anarva.online/sitemap.xml',
+        sitemap: 'https://www.anarva.online/sitemap.xml',
     }
 }
