@@ -27,6 +27,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://anarva.online"),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: "ANARVA Digital Architecture Studio | UI/UX, AI Infrastructure, Full Stack & Web3 Development",
     template: "%s | ANARVA",
@@ -105,10 +108,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": ["Organization", "ProfessionalService"],
               "name": "ANARVA Digital Architecture Studio",
+              "alternateName": "Anarva",
               "url": "https://anarva.online",
-              "logo": "https://anarva.online/logo.png",
+              "logo": "https://anarva.online/Logo-dark1.png",
+              "image": "https://anarva.online/og-image-home.png",
               "description": "UI/UX, AI Infrastructure, Full Stack Development & Web3 Agency",
               "sameAs": [
                 "https://linkedin.com/in/anarva-systems-1865163b1",
