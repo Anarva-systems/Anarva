@@ -31,11 +31,13 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   title: {
-    default: "ANARVA Digital Architecture Studio | UI/UX, AI Infrastructure, Full Stack & Web3 Development",
+    default: "ANARVA | Premium Web Agency & App Development Studio",
     template: "%s | ANARVA",
   },
-  description: "ANARVA Digital Architecture Studio provides UI/UX design, AI infrastructure, RAG pipelines, full-stack development, Web3, security audits, and growth-focused SEO solutions.",
+  description: "ANARVA is a premium Web Agency and App Development Studio providing UI/UX design, AI infrastructure, RAG pipelines, full-stack development, and Web3 engineering.",
   keywords: [
+    "Web Agency",
+    "App Development Agency",
     "UI/UX Design Agency",
     "Product Architecture",
     "AI Development Company",
@@ -58,9 +60,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://anarva.online",
-    siteName: "ANARVA Digital Architecture Studio",
-    title: "ANARVA Digital Architecture Studio",
+    url: "https://www.anarva.online",
+    siteName: "ANARVA | Web Agency & App Development Studio",
+    title: "ANARVA | Premium Web Agency & App Development Studio",
     description: "High-end UI/UX, AI systems, Full-Stack Engineering & Web3 Development.",
     images: [{
       url: "/og-image-home.png",
@@ -71,7 +73,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ANARVA Digital Architecture Studio",
+    title: "ANARVA | Premium Web Agency & App Development Studio",
     description: "High-end UI/UX, AI systems, Full-Stack Engineering & Web3 Development.",
     images: ["/og-image-home.png"],
   },

@@ -8,19 +8,19 @@ import KineticSectionTitle from "../ui/KineticSectionTitle";
 
 const SERVICES = [
     {
-        title: "UI/UX DESIGN & PRODUCT ARCHITECTURE",
-        description: "High-end product architecture and UI/UX design for SaaS and web apps. We blend user strategy with conversion-focused aesthetics.",
-        tags: ["UI/UX AGENCY", "SAAS PRODUCT DESIGN", "UX STRATEGY"]
+        title: "WEB AGENCY & PRODUCT ARCHITECTURE",
+        description: "High-end product architecture and UI/UX design for SaaS and web apps. As a premier web agency, we blend user strategy with conversion-focused aesthetics.",
+        tags: ["WEB AGENCY", "SAAS PRODUCT DESIGN", "UX STRATEGY"]
     },
     {
-        title: "AI INFRASTRUCTURE & RAG PIPELINES",
-        description: "Custom AI agent development and LLM integration services. We build autonomous RAG pipelines and fine-tune models for enterprise automation.",
-        tags: ["AI AUTOMATION", "LLM INTEGRATION", "RAG DEVELOPMENT"]
+        title: "APP DEVELOPMENT & AI INFRASTRUCTURE",
+        description: "Custom app development agency specializing in AI agent development and LLM integration. We build autonomous RAG pipelines for enterprise automation.",
+        tags: ["APP DEVELOPMENT AGENCY", "AI AUTOMATION", "LLM INTEGRATION"]
     },
     {
         title: "FULL STACK & WEB3 ENGINEERING",
-        description: "Elite React, Next.js, and Node.js development coupled with decentralized Web3 protocols and smart contract engineering.",
-        tags: ["NEXT.JS EXPERTS", "WEB3 DEVELOPMENT", "SMART CONTRACTS"]
+        description: "Elite React, Next.js, and Node.js software studio coupled with decentralized Web3 protocols and smart contract engineering.",
+        tags: ["SOFTWARE STUDIO", "NEXT.JS EXPERTS", "WEB3 DEVELOPMENT"]
     },
     {
         title: "GROWTH PROTOCOLS & SECURITY",

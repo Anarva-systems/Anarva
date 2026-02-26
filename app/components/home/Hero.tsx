@@ -313,7 +313,7 @@ export default function Hero() {
                     <div className="md:flex items-end gap-12 mt-12">
                         <p className="text-sm md:text-base text-zinc-500 font-mono leading-relaxed max-w-md tracking-wide">
                             ANARVA ARCHITECTS THE UNSEEN. <br />
-                            WE BUILD HIGH-PERFORMANCE DIGITAL INFRASTRUCTURE FOR BRANDS THAT DEMAND PERFECTION.
+                            A PREMIUM WEB AGENCY & APP DEVELOPMENT STUDIO BUILDING HIGH-PERFORMANCE DIGITAL INFRASTRUCTURE.
                         </p>
 
                         <Link href="/work" className="hidden md:flex items-center gap-4 group mt-6 md:mt-0">
