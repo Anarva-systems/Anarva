@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Start Your Project - Submit Requirements | Anarva Systems",
-    description: "Ready to build the future? Submit your project requirements and connect with our expert team to transform your ideas into reality.",
-    keywords: ["submit project", "project requirements", "get started", "web development inquiry", "AI project consultation"],
-    robots: {
-        index: false,
-        follow: true,
-    },
+    title: "Contact Us - Start Your Project | Anarva Systems",
+    description: "Ready to build the future? Contact Anarva Systems. Submit your project requirements for Web Development, App Design, or AI Integration.",
+    keywords: ["Contact Anarva", "Hire a Web Agency", "Web Development Inquiry", "App Development Consultation", "Submit Project Requirements", "AI Project Consultation"],
     openGraph: {
         title: "Start Your Project with Anarva",
         description: "Submit your project requirements and let's build something amazing together",
-        url: "https://anarva.online/submit-requirements",
+        url: "https://www.anarva.online/contact",
         siteName: "Anarva Systems",
         type: "website",
     },

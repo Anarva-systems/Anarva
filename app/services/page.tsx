@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { ServiceGrid } from "./services/ServiceGrid";
 
 export const metadata: Metadata = {
-  title: "Services | Anarva Systems",
-  description: "Precision-engineered digital solutions. AI Infrastructure, Full-Stack Architecture, and Decentralized Systems.",
+  title: "Services - UI/UX, AI & Full-Stack Development | Anarva Systems",
+  description: "Anarva provides precision-engineered digital solutions including Next.js web development, mobile apps, AI infrastructure, and Web3 decentralized systems.",
+  keywords: ["Web Agency Services", "UI/UX Design Services", "Next.js Development Agency", "AI Infrastructure Setup", "Web3 Development Agency", "Full-Stack Architecture", "Mobile App Development"],
 };
 
 export default function ServicesPage() {
