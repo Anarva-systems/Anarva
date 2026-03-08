@@ -26,8 +26,10 @@ export default function PortfolioSection() {
     const handleWheel = (e: React.WheelEvent) => {
         const now = Date.now();
         if (now - lastScrollTime.current < 300) return;
-        if (Math.abs(e.deltaY) > 5) {
-            setIndex(prev => (e.deltaY > 0 ? prev + 1 : prev - 1));
+        // Only use horizontal wheel (deltaX) or very intentional vertical wheel so it doesn't completely trap page scrolling.
+        // Even better, let's allow page vertical scrolling and only handle horizontal trackpad swipes here.
+        if (Math.abs(e.deltaX) > 5) {
+            setIndex(prev => (e.deltaX > 0 ? prev + 1 : prev - 1));
             lastScrollTime.current = now;
         }
     };
@@ -35,7 +37,7 @@ export default function PortfolioSection() {
     return (
         <div
             onWheel={handleWheel}
-            className="relative h-[100dvh] w-full bg-[#020205] overflow-hidden flex flex-col items-center justify-between pt-24 pb-6 touch-none select-none"
+            className="relative h-[100dvh] w-full bg-[#020205] overflow-hidden flex flex-col items-center justify-between pt-24 pb-6 select-none"
         >
             {/* 1. DYNAMIC BACKGROUND */}
             <AnimatePresence mode="wait">
