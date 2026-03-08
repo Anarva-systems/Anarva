@@ -54,7 +54,7 @@ export default function PremiumLoader({
                         <div className="relative w-48 h-auto">
                             {/* 1. Background (Dim/Ghost) Logo */}
                             <img
-                                src="/Logo-dark.png"
+                                src="/Logo-w.svg"
                                 alt="Anarva"
                                 className="w-full h-auto object-contain opacity-20 grayscale brightness-50"
                             />
@@ -67,7 +67,7 @@ export default function PremiumLoader({
                                 }}
                             >
                                 <img
-                                    src="/Logo-dark.png"
+                                    src="/Logo-w.svg"
                                     alt="Anarva"
                                     className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]"
                                 />

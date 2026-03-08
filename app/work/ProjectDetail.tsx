@@ -142,6 +142,7 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                                 muted
                                 loop
                                 playsInline
+                                preload="metadata"
                                 className="w-full h-full object-cover"
                             />
 

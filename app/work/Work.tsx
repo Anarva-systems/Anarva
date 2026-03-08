@@ -35,7 +35,7 @@ export default function PortfolioSection() {
     return (
         <div
             onWheel={handleWheel}
-            className="relative h-screen w-full bg-[#020205] overflow-hidden flex flex-col items-center justify-between py-10 touch-none select-none"
+            className="relative h-[100dvh] w-full bg-[#020205] overflow-hidden flex flex-col items-center justify-between pt-24 pb-6 touch-none select-none"
         >
             {/* 1. DYNAMIC BACKGROUND */}
             <AnimatePresence mode="wait">
@@ -113,7 +113,7 @@ export default function PortfolioSection() {
                                 <meta itemProp="thumbnailUrl" content={`https://www.anarva.online${projects[i].bg}`} />
                                 <meta itemProp="contentUrl" content={`https://www.anarva.online${projects[i].bg}`} />
                                 <meta itemProp="uploadDate" content="2024-01-01T08:00:00+08:00" />
-                                <video src={projects[i].bg} muted autoPlay loop playsInline className="w-full h-full object-cover" />
+                                <video src={projects[i].bg} muted autoPlay loop playsInline preload="metadata" className="w-full h-full object-cover" />
                             </div>
                             <p className="text-blue-500 text-[10px] font-black tracking-[0.2em] uppercase mb-1">{projects[i].label}</p>
                             <h3 className="text-white text-3xl md:text-4xl font-bold tracking-tight mb-auto leading-none">{projects[i].title}</h3>

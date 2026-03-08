@@ -70,7 +70,7 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div className="md:col-span-4 space-y-8">
                         <div className="w-10 h-10 opacity-80">
-                            <Image src="/Logo-dark1.png" alt="Logo" width={40} height={40} className="brightness-0 invert" />
+                            <Image src="/Logo.svg" alt="Logo" width={40} height={40} className="brightness-0 invert" />
                         </div>
                         <p className="text-zinc-500 text-xs font-mono uppercase tracking-widest leading-relaxed max-w-xs">
                             ANARVA SYSTEMS<br />

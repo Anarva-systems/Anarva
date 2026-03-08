@@ -29,6 +29,17 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Handle window resize to close mobile menu on desktop
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 768) {
+                setIsMenuOpen(false);
+            }
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     // Toggle body scroll
     useEffect(() => {
         if (isMenuOpen) {
@@ -41,7 +52,7 @@ export default function Navbar() {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-white/5 
+                className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 border-b border-white/5 
                 ${scrolled || isMenuOpen ? "bg-black/90 backdrop-blur-md py-4" : "bg-transparent py-6"}`}
             >
                 <div className="px-6 md:px-12 flex items-center justify-between max-w-[1400px] mx-auto">
@@ -50,7 +61,7 @@ export default function Navbar() {
                         <Link href="/" className="block" onClick={() => setIsMenuOpen(false)}>
                             <div className="w-8 h-8 relative">
                                 <Image
-                                    src="/Logo-dark1.png"
+                                    src="/Logo.svg"
                                     alt="Logo"
                                     fill
                                     className="object-contain brightness-0 invert"
@@ -95,7 +106,7 @@ export default function Navbar() {
 
                         {/* Mobile Menu Toggle */}
                         <button
-                            className="md:hidden text-white"
+                            className="md:hidden text-white z-60"
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
                             {isMenuOpen ? <X /> : (
@@ -117,7 +128,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: "-100%" }}
                         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                        className="fixed inset-0 z-40 bg-black text-white flex flex-col pt-32 px-8 overflow-hidden"
+                        className="fixed inset-0 z-[90] bg-black text-white flex flex-col pt-32 px-8 overflow-hidden md:hidden"
                     >
                         {/* Grid Texture */}
                         <div className="absolute inset-0 z-0 opacity-[0.05]"
@@ -152,7 +163,7 @@ export default function Navbar() {
                         <div className="mt-auto pb-12 border-t border-white/10 pt-8 relative z-10">
                             <div className="flex flex-col gap-2">
                                 <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">System Contact</span>
-                                <a href="mailto:hello@anarva.online" className="text-xl font-light tracking-wide hover:text-zinc-300 transition-colors">hello@anarva.online</a>
+                                <a href="mailto:ashapumohan7@gmail.com" className="text-xl font-light tracking-wide hover:text-zinc-300 transition-colors">Say Hello!</a>
                             </div>
                         </div>
                     </motion.div>
