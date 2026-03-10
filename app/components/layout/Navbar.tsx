@@ -163,7 +163,7 @@ export default function Navbar() {
                         <div className="mt-auto pb-12 border-t border-white/10 pt-8 relative z-10">
                             <div className="flex flex-col gap-2">
                                 <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">System Contact</span>
-                                <a href="mailto:ashapumohan7@gmail.com" className="text-xl font-light tracking-wide hover:text-zinc-300 transition-colors">Say Hello!</a>
+                                <a href="mailto:anarvasystems2026@gmail.com" className="text-xl font-light tracking-wide hover:text-zinc-300 transition-colors">Say Hello!</a>
                             </div>
                         </div>
                     </motion.div>

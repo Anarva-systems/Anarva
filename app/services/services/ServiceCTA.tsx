@@ -25,7 +25,7 @@ export function ServiceCTA() {
                         <ArrowRight className="w-4 h-4" />
                     </Link>
                     <a
-                        href="mailto:ashapumohan7@gmail.com"
+                        href="mailto:anarvasystems2026@gmail.com"
                         className="px-8 py-4 bg-transparent text-white font-medium rounded-full hover:bg-white/10 transition-colors flex items-center justify-center gap-3 border border-white/20 w-fit"
                     >
                         Say Hello

@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://anarva.online">Live Site</a> ·
-  <a href="mailto:ashapumohan7@gmail.com">Contact</a>
+  <a href="mailto:anarvasystems2026@gmail.com">Contact</a>
 </p>
 
 <p align="center">
@@ -209,7 +209,7 @@ Create a `.env.local` file in the project root:
 EMAIL_HOST=smtp.example.com
 EMAIL_USER=your-email@example.com
 EMAIL_PASS=your-app-password
-EMAIL_TO=ashapumohan7@gmail.com
+EMAIL_TO=anarvasystems2026@gmail.com
 ```
 
 ### Development
