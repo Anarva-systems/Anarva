@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -17,8 +17,15 @@ const navLinks = [
 
 export default function Navbar() {
     const pathname = usePathname();
+    const router = useRouter();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+
+    // Navigate then close — ensures touch tap registers before overlay animates away
+    const handleMobileNav = (href: string) => {
+        router.push(href);
+        setTimeout(() => setIsMenuOpen(false), 50);
+    };
 
     // Handle scroll effect
     useEffect(() => {
@@ -40,13 +47,10 @@ export default function Navbar() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Toggle body scroll
+    // Toggle body scroll — restore on unmount too
     useEffect(() => {
-        if (isMenuOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "unset";
-        }
+        document.body.style.overflow = isMenuOpen ? "hidden" : "";
+        return () => { document.body.style.overflow = ""; };
     }, [isMenuOpen]);
 
     return (
@@ -148,14 +152,14 @@ export default function Navbar() {
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.2 + idx * 0.1, duration: 0.3 }}
                                 >
-                                    <Link
-                                        href={link.href}
-                                        onClick={() => setIsMenuOpen(false)}
-                                        className="text-4xl font-light tracking-tight text-white/50 hover:text-white hover:pl-4 transition-all duration-300 block"
+                                    <button
+                                        onClick={() => handleMobileNav(link.href)}
+                                        className={`text-4xl font-light tracking-tight transition-all duration-300 block w-full text-left hover:pl-4
+                                            ${pathname === link.href ? "text-white" : "text-white/50 hover:text-white"}`}
                                     >
                                         <span className="text-xs font-mono text-zinc-600 align-top mr-4">0{idx + 1}</span>
                                         {link.name}
-                                    </Link>
+                                    </button>
                                 </motion.div>
                             ))}
                         </motion.div>

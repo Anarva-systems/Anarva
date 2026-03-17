@@ -169,15 +169,6 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                                         {project.title}
                                     </motion.h1>
                                 </div>
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: 0.8, type: "spring" }}
-                                    className="hidden md:flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 border border-white/10 backdrop-blur-xl text-white text-sm font-medium hover:bg-white/20 transition-all cursor-pointer group/btn"
-                                >
-                                    <span>Live Preview</span>
-                                    <ArrowUpRight size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                                </motion.div>
                             </div>
                         </motion.div>
 
