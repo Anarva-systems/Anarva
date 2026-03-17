@@ -6,6 +6,7 @@
             "label": "AI",
             "color": "from-blue-600",
             "bg": "/Work/Vendorsync.mp4",
+            "thumbnail": "/images/Vendorsync.png",
             "year": "2025",
             "role": "Full-Stack Development",
             "description": "An intelligent vendor management platform that leverages AI to automate procurement workflows, sync vendor data in real-time, and optimize supply chain operations with predictive analytics.",
@@ -31,6 +32,7 @@
             "label": "EDTECH + AI",
             "color": "from-red-600",
             "bg": "/Work/Codeviz.mp4",
+            "thumbnail": "/images/CodeViz.png",
             "year": "2025",
             "role": "Full-Stack Development",
             "description": "A revolutionary code visualization platform that transforms complex algorithms into interactive animated diagrams, making programming education intuitive and engaging for learners worldwide.",
@@ -56,6 +58,7 @@
             "label": "HealthTech + AI",
             "color": "from-purple-600",
             "bg": "/Work/Alzheimer.mp4",
+            "thumbnail": "/images/Alzheimer.png",
             "year": "2025",
             "role": "AI/ML Engineering",
             "description": "A deep learning-powered diagnostic tool that analyzes MRI brain scans to detect early signs of Alzheimer's disease, enabling timely intervention and improved patient outcomes.",
@@ -81,6 +84,7 @@
             "label": "FINTECH + AI",
             "color": "from-yellow-600",
             "bg": "/Work/DeriverseTradingAnalytics.mp4",
+            "thumbnail": "/images/Deriverse Trading Analytics.png",
             "year": "2024",
             "role": "Full-Stack Development",
             "description": "A sophisticated trading analytics dashboard that provides real-time market insights, AI-driven trade signals, and comprehensive portfolio performance tracking for derivative markets.",
@@ -106,6 +110,7 @@
             "label": "AI",
             "color": "from-green-600",
             "bg": "/Work/Refino.mp4",
+            "thumbnail": "/images/Refino.png",
             "year": "2025",
             "role": "Full-Stack Development",
             "description": "An advanced AI prompt engineering tool that generates optimized, production-grade prompts for any use case — from code generation to creative writing — with intelligent context analysis.",
@@ -130,6 +135,7 @@
             "label": "Security + AI",
             "color": "from-green-600",
             "bg": "/Work/CyberSentinel.ai.mp4",
+            "thumbnail": "/images/CyberSentinel.ai.png",
             "year": "2024",
             "role": "Security Engineering",
             "description": "An AI-powered cybersecurity platform that monitors network traffic, detects threats in real-time using machine learning models, and automates incident response protocols.",
@@ -155,6 +161,7 @@
             "label": "EDTECH + AI",
             "color": "from-green-600",
             "bg": "/Work/SecureQ&A.mp4",
+            "thumbnail": "/images/SecureQ&A.png",
             "year": "2025",
             "role": "AI/ML Engineering",
             "description": "A secure, enterprise-grade knowledge assistant that uses RAG (Retrieval-Augmented Generation) to answer questions from uploaded documents while maintaining strict data privacy.",
@@ -180,6 +187,7 @@
             "label": "EDTECH + AI",
             "color": "from-green-600",
             "bg": "/Work/WikiQuiz.mp4",
+            "thumbnail": "/images/WikiQuiz.png",
             "year": "2025",
             "role": "Full-Stack Development",
             "description": "An intelligent quiz generation platform that transforms any Wikipedia article into engaging, adaptive quizzes using AI, making knowledge testing fun and personalized.",
@@ -197,6 +205,32 @@
                 "Multi-topic quiz history"
             ],
             "gradient": "from-rose-500 via-pink-400 to-fuchsia-400"
+        },
+        {
+            "id": 9,
+            "title": "GymFlow - Fitness App",
+            "label": "FITNESS + AI",
+            "color": "from-orange-600",
+            "bg": "/Work/gymflow.mp4",
+            "thumbnail": "/images/gymflow.png",
+            "year": "2025",
+            "role": "Full-Stack Development",
+            "description": "A smart fitness application that uses AI to generate personalized workout plans, track progress in real-time, and adapt training intensity based on performance data.",
+            "techStack": [
+                "React Native",
+                "Next.js",
+                "Python",
+                "FastAPI",
+                "PostgreSQL",
+                "TensorFlow"
+            ],
+            "features": [
+                "AI-generated personalized workout plans",
+                "Real-time performance tracking",
+                "Adaptive intensity calibration",
+                "Progress analytics dashboard"
+            ],
+            "gradient": "from-orange-500 via-amber-400 to-yellow-400"
         }
     ]
 }

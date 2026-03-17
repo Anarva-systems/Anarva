@@ -14,7 +14,7 @@ const PROJECT_TYPES = [
 const BUDGET_RANGES = ["$0 - $5k", "$5k - $10k", "$10k - $25k", "$25k - $50k", "$50k+", "Undisclosed"];
 
 export default function SubmitRequirementsLight() {
-    const [formData, setFormData] = useState({ name: "", email: "", company: "", details: "" });
+    const [formData, setFormData] = useState({ name: "", email: "", company: "", phone: "", location: "", languages: "", details: "" });
     const [selectedType, setSelectedType] = useState(PROJECT_TYPES[0].id);
     const [selectedBudget, setSelectedBudget] = useState(BUDGET_RANGES[0]);
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -29,7 +29,10 @@ export default function SubmitRequirementsLight() {
         const payload = {
             ...formData,
             projectType: PROJECT_TYPES.find(t => t.id === selectedType)?.label || selectedType,
-            budget: selectedBudget
+            budget: selectedBudget,
+            phone: formData.phone,
+            location: formData.location,
+            languages: formData.languages,
         };
 
         try {
@@ -41,7 +44,7 @@ export default function SubmitRequirementsLight() {
 
             if (res.ok) {
                 setStatus("success");
-                setFormData({ name: "", email: "", company: "", details: "" });
+                setFormData({ name: "", email: "", company: "", phone: "", location: "", languages: "", details: "" });
                 // Reset after 3 seconds
                 setTimeout(() => setStatus("idle"), 3000);
             } else {
@@ -162,6 +165,45 @@ export default function SubmitRequirementsLight() {
                                         value={formData.company}
                                         onChange={handleChange}
                                         placeholder="e.g. Acme Corp (Optional)"
+                                        className="w-full bg-transparent border-b border-white/10 py-4 text-xl font-medium focus:outline-none focus:border-white transition-all placeholder:text-white/10 text-white"
+                                    />
+                                </div>
+                                <div className="group relative">
+                                    <label className="text-[9px] font-black text-zinc-500 uppercase tracking-[0.2em] absolute -top-6">
+                                        Phone Number
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        placeholder="e.g. +91 9876543210"
+                                        className="w-full bg-transparent border-b border-white/10 py-4 text-xl font-medium focus:outline-none focus:border-white transition-all placeholder:text-white/10 text-white"
+                                    />
+                                </div>
+                                <div className="group relative">
+                                    <label className="text-[9px] font-black text-zinc-500 uppercase tracking-[0.2em] absolute -top-6">
+                                        Live Location / City
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="location"
+                                        value={formData.location}
+                                        onChange={handleChange}
+                                        placeholder="e.g. Hyderabad, India"
+                                        className="w-full bg-transparent border-b border-white/10 py-4 text-xl font-medium focus:outline-none focus:border-white transition-all placeholder:text-white/10 text-white"
+                                    />
+                                </div>
+                                <div className="group relative md:col-span-2">
+                                    <label className="text-[9px] font-black text-zinc-500 uppercase tracking-[0.2em] absolute -top-6">
+                                        Languages Known
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="languages"
+                                        value={formData.languages}
+                                        onChange={handleChange}
+                                        placeholder="e.g. English, Hindi, Telugu"
                                         className="w-full bg-transparent border-b border-white/10 py-4 text-xl font-medium focus:outline-none focus:border-white transition-all placeholder:text-white/10 text-white"
                                     />
                                 </div>

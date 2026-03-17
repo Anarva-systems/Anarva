@@ -16,10 +16,12 @@ type Message = {
 
 type LeadState = {
     active: boolean;
-    step: "name" | "email" | "phone" | "company" | "projectType" | "budget" | "details" | "done";
+    step: "name" | "email" | "phone" | "location" | "languages" | "company" | "projectType" | "budget" | "details" | "done";
     name?: string;
     email?: string;
     phone?: string;
+    location?: string;
+    languages?: string;
     company?: string;
     projectType?: string;
     budget?: string;
@@ -188,8 +190,22 @@ export default function Chatbot() {
                     addBotMessage("That doesn't look right. Please enter a valid phone number. (e.g. +91 7989909756)");
                     return;
                 }
-                setLeadState({ ...leadState, step: "company", phone });
-                addBotMessage("Phone registered. What is your **company/organization** name? (Type 'skip' if individual)");
+                setLeadState({ ...leadState, step: "location", phone });
+                addBotMessage("Phone registered. What is your **current location / city**?");
+                break;
+            }
+
+            case "location": {
+                const location = text.trim();
+                setLeadState({ ...leadState, step: "languages", location });
+                addBotMessage("Got it! What **languages do you know**? (e.g. English, Hindi, Telugu)");
+                break;
+            }
+
+            case "languages": {
+                const languages = text.trim();
+                setLeadState({ ...leadState, step: "company", languages });
+                addBotMessage("What is your **company/organization** name? (Type 'skip' if individual)");
                 break;
             }
 
@@ -213,6 +229,8 @@ export default function Chatbot() {
                     name: leadState.name || "",
                     email: leadState.email || "",
                     phone: leadState.phone || "N/A",
+                    location: leadState.location || "N/A",
+                    languages: leadState.languages || "N/A",
                     company: leadState.company || "N/A",
                     projectType: leadState.projectType || "N/A",
                     budget: leadState.budget || "N/A",
@@ -233,6 +251,8 @@ export default function Chatbot() {
                     `*Name:* ${finalLead.name}`,
                     `*Email:* ${finalLead.email}`,
                     `*Phone:* ${finalLead.phone}`,
+                    `*Location:* ${finalLead.location}`,
+                    `*Languages:* ${finalLead.languages}`,
                     `*Company:* ${finalLead.company}`,
                     `*Project Type:* ${finalLead.projectType}`,
                     `*Budget:* ${finalLead.budget}`,
@@ -244,7 +264,7 @@ export default function Chatbot() {
                 window.open(waUrl, "_blank");
 
                 addBotMessage(
-                    `Transmission complete!\n\n\u2022 **Name:** ${finalLead.name}\n\u2022 **Email:** ${finalLead.email}\n\u2022 **Phone:** ${finalLead.phone}\n\u2022 **Company:** ${finalLead.company}\n\u2022 **Project:** ${finalLead.projectType}\n\u2022 **Budget:** ${finalLead.budget}\n\u2022 **Vision:** ${finalLead.details}\n\nOur architects will analyze your request and contact you within **24 hours**. A WhatsApp message has also been initiated for faster response.`,
+                    `Transmission complete!\n\n• **Name:** ${finalLead.name}\n• **Email:** ${finalLead.email}\n• **Phone:** ${finalLead.phone}\n• **Location:** ${finalLead.location}\n• **Languages:** ${finalLead.languages}\n• **Company:** ${finalLead.company}\n• **Project:** ${finalLead.projectType}\n• **Budget:** ${finalLead.budget}\n• **Vision:** ${finalLead.details}\n\nOur architects will analyze your request and contact you within **24 hours**. A WhatsApp message has also been initiated for faster response.`,
                     ["View Our Work", "Our Services", "Our Process"]
                 );
                 setLeadState({ active: false, step: "done" });
@@ -401,9 +421,11 @@ export default function Chatbot() {
                                     leadState.step === "name" ? "Your full name..." :
                                         leadState.step === "email" ? "your@email.com" :
                                             leadState.step === "phone" ? "+91 XXXXXXXXXX" :
-                                                leadState.step === "company" ? "Company name or 'skip'..." :
-                                                    leadState.step === "details" ? "Describe your vision..." :
-                                                        "Type your message..."
+                                                leadState.step === "location" ? "e.g. Hyderabad, India" :
+                                                    leadState.step === "languages" ? "e.g. English, Hindi, Telugu" :
+                                                        leadState.step === "company" ? "Company name or 'skip'..." :
+                                                            leadState.step === "details" ? "Describe your vision..." :
+                                                                "Type your message..."
                                 ) : "Type your message..."}
                                 className="flex-1 bg-black/20 border border-white/10 rounded-xl px-4 py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-neon/50 transition-colors"
                             />

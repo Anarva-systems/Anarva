@@ -1,16 +1,111 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import workData from "./work.json";
 import ProjectDetail from "./ProjectDetail";
 
 const projects = workData.projects;
 
+type Project = typeof projects[0];
+
+// Card with image-first, video-on-active logic
+function ProjectCard({
+    project,
+    isActive,
+    onClick,
+    onViewProject,
+}: {
+    project: Project;
+    isActive: boolean;
+    onClick: () => void;
+    onViewProject: (e: React.MouseEvent) => void;
+}) {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [videoMounted, setVideoMounted] = useState(false);
+    const [videoReady, setVideoReady] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+
+    // Play when active or hovered, pause otherwise
+    useEffect(() => {
+        const shouldPlay = isActive || isHovered;
+        if (shouldPlay && !videoMounted) {
+            setVideoMounted(true);
+        }
+        if (videoRef.current) {
+            if (shouldPlay) {
+                videoRef.current.play().catch(() => {});
+            } else {
+                videoRef.current.pause();
+                videoRef.current.currentTime = 0;
+                setVideoReady(false);
+            }
+        }
+    }, [isActive, isHovered, videoMounted]);
+
+    const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+    const handleMouseLeave = useCallback(() => setIsHovered(false), []);
+
+    const showVideo = (isActive || isHovered) && videoReady;
+
+    return (
+        <div
+            className="w-full h-full flex flex-col"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={onClick}
+        >
+            {/* Media area */}
+            <div className="w-full h-52 md:h-64 rounded-[2rem] overflow-hidden mb-6 relative"
+                itemScope itemType="https://schema.org/VideoObject">
+                <meta itemProp="name" content={`${project.title} Workflow`} />
+                <meta itemProp="description" content={`Video workflow for ${project.title}`} />
+                <meta itemProp="thumbnailUrl" content={`https://www.anarva.online${project.thumbnail}`} />
+                <meta itemProp="contentUrl" content={`https://www.anarva.online${project.bg}`} />
+                <meta itemProp="uploadDate" content="2024-01-01T08:00:00+08:00" />
+
+                {/* Static thumbnail — always rendered */}
+                <Image
+                    src={project.thumbnail}
+                    alt={project.title}
+                    fill
+                    className={`object-cover transition-all duration-700 ${showVideo ? "opacity-0" : "opacity-100"}`}
+                    sizes="(max-width: 768px) 320px, 450px"
+                    priority={false}
+                />
+
+                {/* Video — mounted once active/hovered for the first time */}
+                {videoMounted && (
+                    <video
+                        ref={videoRef}
+                        src={project.bg}
+                        muted
+                        loop
+                        playsInline
+                        preload="none"
+                        onCanPlay={() => setVideoReady(true)}
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${showVideo ? "opacity-100" : "opacity-0"}`}
+                    />
+                )}
+            </div>
+
+            <p className="text-blue-500 text-[10px] font-black tracking-[0.2em] uppercase mb-1">{project.label}</p>
+            <h3 className="text-white text-3xl md:text-4xl font-bold tracking-tight mb-auto leading-none">{project.title}</h3>
+            <div
+                onClick={onViewProject}
+                className="mt-4 flex items-center gap-2 text-slate-500 text-xs font-medium uppercase tracking-widest hover:text-white transition-colors cursor-pointer"
+            >
+                view project <span>→</span>
+            </div>
+        </div>
+    );
+}
+
 export default function PortfolioSection() {
     const [index, setIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
-    const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const lastScrollTime = useRef(0);
 
     useEffect(() => {
@@ -26,8 +121,6 @@ export default function PortfolioSection() {
     const handleWheel = (e: React.WheelEvent) => {
         const now = Date.now();
         if (now - lastScrollTime.current < 300) return;
-        // Only use horizontal wheel (deltaX) or very intentional vertical wheel so it doesn't completely trap page scrolling.
-        // Even better, let's allow page vertical scrolling and only handle horizontal trackpad swipes here.
         if (Math.abs(e.deltaX) > 5) {
             setIndex(prev => (e.deltaX > 0 ? prev + 1 : prev - 1));
             lastScrollTime.current = now;
@@ -39,7 +132,7 @@ export default function PortfolioSection() {
             onWheel={handleWheel}
             className="relative h-[100dvh] w-full bg-[#020205] overflow-hidden flex flex-col items-center justify-between pt-24 pb-6 select-none"
         >
-            {/* 1. DYNAMIC BACKGROUND */}
+            {/* 1. DYNAMIC BACKGROUND — uses thumbnail for fast load */}
             <AnimatePresence mode="wait">
                 <motion.div
                     key={activeIdx}
@@ -49,7 +142,7 @@ export default function PortfolioSection() {
                     transition={{ duration: 1 }}
                     className="absolute inset-0 z-0"
                     style={{
-                        backgroundImage: `radial-gradient(circle at center, transparent, #020205), url(${projects[activeIdx].bg})`,
+                        backgroundImage: `radial-gradient(circle at center, transparent, #020205), url(${projects[activeIdx].thumbnail})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         filter: 'blur(80px)'
@@ -78,7 +171,7 @@ export default function PortfolioSection() {
 
             {/* 3. THE ARC (MAIN CONTENT) */}
             <div className="relative w-full flex-1 flex items-center justify-center">
-                {projects.map((_, i) => {
+                {projects.map((project, i) => {
                     let relativeIndex = i - activeIdx;
                     if (relativeIndex > 2) relativeIndex -= projects.length;
                     if (relativeIndex < -2) relativeIndex += projects.length;
@@ -90,7 +183,7 @@ export default function PortfolioSection() {
 
                     return (
                         <motion.div
-                            key={projects[i].id}
+                            key={project.id}
                             drag="x"
                             dragConstraints={{ left: 0, right: 0 }}
                             onDragEnd={(_, info) => {
@@ -106,25 +199,14 @@ export default function PortfolioSection() {
                                 zIndex: isActive ? 40 : 20 - Math.abs(relativeIndex),
                             }}
                             transition={{ type: "spring", stiffness: 180, damping: 25 }}
-                            onClick={() => setIndex(i)}
-                            className={`absolute ${isMobile ? 'w-[320px] h-[440px] p-6' : 'w-[450px] h-[480px] p-8'} bg-[#0c0c14]/90 border border-white/10 rounded-[3rem] backdrop-blur-3xl cursor-grab active:cursor-grabbing flex flex-col`}
+                            className={`absolute ${isMobile ? 'w-[320px] h-[440px] p-6' : 'w-[450px] h-[480px] p-8'} bg-[#0c0c14]/90 border border-white/10 rounded-[3rem] backdrop-blur-3xl cursor-grab active:cursor-grabbing`}
                         >
-                            <div className="w-full h-52 md:h-64 rounded-[2rem] overflow-hidden mb-6" itemScope itemType="https://schema.org/VideoObject">
-                                <meta itemProp="name" content={`${projects[i].title} Workflow`} />
-                                <meta itemProp="description" content={`Video workflow for ${projects[i].title}`} />
-                                <meta itemProp="thumbnailUrl" content={`https://www.anarva.online${projects[i].bg}`} />
-                                <meta itemProp="contentUrl" content={`https://www.anarva.online${projects[i].bg}`} />
-                                <meta itemProp="uploadDate" content="2024-01-01T08:00:00+08:00" />
-                                <video src={projects[i].bg} muted autoPlay loop playsInline preload="metadata" className="w-full h-full object-cover" />
-                            </div>
-                            <p className="text-blue-500 text-[10px] font-black tracking-[0.2em] uppercase mb-1">{projects[i].label}</p>
-                            <h3 className="text-white text-3xl md:text-4xl font-bold tracking-tight mb-auto leading-none">{projects[i].title}</h3>
-                            <div
-                                onClick={(e) => { e.stopPropagation(); setSelectedProject(projects[i]); }}
-                                className="mt-4 flex items-center gap-2 text-slate-500 text-xs font-medium uppercase tracking-widest hover:text-white transition-colors cursor-pointer"
-                            >
-                                view project <span>→</span>
-                            </div>
+                            <ProjectCard
+                                project={project}
+                                isActive={isActive}
+                                onClick={() => setIndex(i)}
+                                onViewProject={(e) => { e.stopPropagation(); setSelectedProject(project); }}
+                            />
                         </motion.div>
                     );
                 })}
@@ -156,6 +238,7 @@ export default function PortfolioSection() {
                     </button>
                 </div>
             </footer>
+
             {/* Project Detail Modal */}
             <ProjectDetail project={selectedProject} onClose={() => setSelectedProject(null)} />
         </div>
