@@ -231,6 +231,32 @@
                 "Progress analytics dashboard"
             ],
             "gradient": "from-orange-500 via-amber-400 to-yellow-400"
+        },
+        {
+            "id": 10,
+            "title": "Aurum - Restaurant Management System",
+            "label": "RESTAURANT + AI",
+            "color": "from-orange-600",
+            "bg": "/Work/Food.mp4",
+            "thumbnail": "/images/Food.png",
+            "year": "2025",
+            "role": "Full-Stack Development",
+            "description": "A smart restaurant management system that uses AI to generate personalized menu recommendations, track inventory in real-time, and adapt pricing based on demand.",
+            "techStack": [
+                "React Native",
+                "Next.js",
+                "Python",
+                "FastAPI",
+                "PostgreSQL",
+                "TensorFlow"
+            ],
+            "features": [
+                "AI-generated personalized menu recommendations",
+                "Real-time inventory tracking",
+                "Adaptive pricing based on demand",
+                "Progress analytics dashboard"
+            ],
+            "gradient": "from-orange-500 via-amber-400 to-yellow-400"
         }
     ]
 }

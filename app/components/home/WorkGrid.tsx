@@ -9,10 +9,10 @@ import KineticSectionTitle from "../ui/KineticSectionTitle";
 
 const PROJECTS = [
     {
-        title: "REFINO — AI ARCHITECT",
-        category: "GEN-AI PLATFORM",
-        video: "/Work/Refino.mp4",
-        thumbnail: "/images/Refino.png",
+        title: "AURUM — Restaurant",
+        category: "Restaurant Management System",
+        video: "/Work/Food.mp4",
+        thumbnail: "/images/Food.png",
         id: "01"
     },
     {
@@ -23,17 +23,17 @@ const PROJECTS = [
         id: "02"
     },
     {
-        title: "CYBERSENTINEL",
-        category: "SECURITY PROTOCOLS",
-        video: "/Work/CyberSentinel.ai.mp4",
-        thumbnail: "/images/CyberSentinel.ai.png",
-        id: "03"
-    },
-    {
         title: "VENDORSYNC",
         category: "INTELLIGENCE GRID",
         video: "/Work/Vendorsync.mp4",
         thumbnail: "/images/Vendorsync.png",
+        id: "03"
+    },
+    {
+        title: "REFINO — AI ARCHITECT",
+        category: "GEN-AI PLATFORM",
+        video: "/Work/Refino.mp4",
+        thumbnail: "/images/Refino.png",
         id: "04"
     }
 ];
@@ -54,7 +54,7 @@ function ProjectCard({ project, idx }: { project: typeof PROJECTS[0]; idx: numbe
         if (!videoMounted) setVideoMounted(true);
         // Give the video a tick to mount, then play
         setTimeout(() => {
-            videoRef.current?.play().catch(() => {});
+            videoRef.current?.play().catch(() => { });
         }, 50);
     }, [videoMounted]);
 
