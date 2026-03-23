@@ -23,19 +23,19 @@ const PROJECTS = [
         id: "02"
     },
     {
+        title: "ELEVATE — salon",
+        category: "SALON MANAGEMENT SYSTEM",
+        video: "/Work/salon.mp4",
+        thumbnail: "/images/salon.png",
+        id: "03"
+    },
+    {
         title: "VENDORSYNC",
         category: "INTELLIGENCE GRID",
         video: "/Work/Vendorsync.mp4",
         thumbnail: "/images/Vendorsync.png",
-        id: "03"
-    },
-    {
-        title: "REFINO — AI ARCHITECT",
-        category: "GEN-AI PLATFORM",
-        video: "/Work/Refino.mp4",
-        thumbnail: "/images/Refino.png",
         id: "04"
-    }
+    },
 ];
 
 // Individual card — manages its own hover/video state

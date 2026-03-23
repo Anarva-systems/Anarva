@@ -235,7 +235,7 @@
         {
             "id": 10,
             "title": "Aurum - Restaurant Management System",
-            "label": "RESTAURANT + AI",
+            "label": "RESTAURANT",
             "color": "from-orange-600",
             "bg": "/Work/Food.mp4",
             "thumbnail": "/images/Food.png",
@@ -252,6 +252,32 @@
             ],
             "features": [
                 "AI-generated personalized menu recommendations",
+                "Real-time inventory tracking",
+                "Adaptive pricing based on demand",
+                "Progress analytics dashboard"
+            ],
+            "gradient": "from-orange-500 via-amber-400 to-yellow-400"
+        },
+        {
+            "id": 11,
+            "title": "Elevate - Salon Management System",
+            "label": "SALON",
+            "color": "from-orange-600",
+            "bg": "/Work/salon.mp4",
+            "thumbnail": "/images/salon.png",
+            "year": "2025",
+            "role": "Full-Stack Development",
+            "description": "A smart salon management system that uses AI to generate personalized recommendations, track inventory in real-time, and adapt pricing based on demand.",
+            "techStack": [
+                "React Native",
+                "Next.js",
+                "Python",
+                "FastAPI",
+                "PostgreSQL",
+                "TensorFlow"
+            ],
+            "features": [
+                "AI-generated personalized recommendations",
                 "Real-time inventory tracking",
                 "Adaptive pricing based on demand",
                 "Progress analytics dashboard"
