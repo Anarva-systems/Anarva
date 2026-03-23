@@ -29,7 +29,7 @@ const FOOTER_NAV: { title: string; links: FooterLink[] }[] = [
     {
         title: "SOCIAL PROTOCOLS", links: [
             { name: "TWITTER", href: "https://x.com/AnarvaS55263", icon: Twitter },
-            { name: "LINKEDIN", href: "https://www.linkedin.com/in/anarva-systems-1865163b1/", icon: Linkedin },
+            { name: "LINKEDIN", href: "https://www.linkedin.com/in/anarva-systems-5975443b9/", icon: Linkedin },
             { name: "INSTAGRAM", href: "https://www.instagram.com/anarva_systems/", icon: Instagram },
         ]
     }
