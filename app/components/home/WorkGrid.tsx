@@ -1,11 +1,12 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import Crosshair from "../ui/Crosshair";
 import KineticSectionTitle from "../ui/KineticSectionTitle";
+import { ExternalLink } from "lucide-react";
 
 const PROJECTS = [
     {
@@ -13,34 +14,38 @@ const PROJECTS = [
         category: "Restaurant Management System",
         video: "/Work/Food.mp4",
         thumbnail: "/images/Food.png",
-        id: "01"
+        id: "01",
+        url: "https://aurum-restaurants.vercel.app/"
     },
     {
         title: "GYMFLOW — FITNESS",
         category: "FITNESS APP",
         video: "/Work/gymflow.mp4",
         thumbnail: "/images/gymflow.png",
-        id: "02"
+        id: "02",
+        url: "https://gymflow-swart.vercel.app/"
     },
     {
         title: "ELEVATE — salon",
         category: "SALON MANAGEMENT SYSTEM",
         video: "/Work/salon.mp4",
         thumbnail: "/images/salon.png",
-        id: "03"
+        id: "03",
+        url: "https://elevate-salon.vercel.app/"
     },
     {
         title: "VENDORSYNC",
         category: "INTELLIGENCE GRID",
         video: "/Work/Vendorsync.mp4",
         thumbnail: "/images/Vendorsync.png",
-        id: "04"
+        id: "04",
+        url: "#" // Link not provided for 4th project
     },
 ];
 
 // Individual card — manages its own hover/video state
 function ProjectCard({ project, idx }: { project: typeof PROJECTS[0]; idx: number }) {
-    const ref = useRef<HTMLDivElement>(null);
+    const ref = useRef<HTMLAnchorElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const isInView = useInView(ref, { once: true, margin: "200px" });
 
@@ -68,9 +73,12 @@ function ProjectCard({ project, idx }: { project: typeof PROJECTS[0]; idx: numbe
     }, []);
 
     return (
-        <motion.div
+        <motion.a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
             ref={ref}
-            className="group relative cursor-pointer"
+            className="group relative cursor-pointer block"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -139,7 +147,7 @@ function ProjectCard({ project, idx }: { project: typeof PROJECTS[0]; idx: numbe
                     {project.category}
                 </span>
             </div>
-        </motion.div>
+        </motion.a>
     );
 }
 
@@ -153,7 +161,7 @@ export default function WorkGrid() {
 
             <div className="max-w-[1400px] mx-auto mb-20 flex items-end justify-between relative z-10">
                 <div>
-                    <span className="text-xs font-mono text-zinc-500 tracking-widest block mb-4">/// SELECTED WORKS</span>
+                    <span className="text-xs font-mono text-zinc-500 tracking-widest block mb-8">/// SELECTED WORKS</span>
                     <KineticSectionTitle title="SYSTEM DEPLOYMENTS" className="text-4xl md:text-6xl font-light tracking-[-0.02em] text-white" />
                 </div>
                 <Link href="/work" className="hidden md:flex items-center gap-2 text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors group">

@@ -44,25 +44,6 @@ export default function Footer() {
             />
 
             <div className="container mx-auto px-6 max-w-[1400px] relative z-10">
-                {/* 1. CTA Section */}
-                <div className="flex flex-col md:flex-row justify-between items-start mb-32 border-b border-white/5 pb-20">
-                    <div className="max-w-3xl">
-                        <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.3em] block mb-8">/// INITIATE SEQUENCE</span>
-                        <div className="mb-12">
-                            {/* Replaced KineticSectionTitle with simple motion for reliability */}
-                            <h2 className="text-5xl md:text-8xl font-light text-white tracking-[-0.04em] leading-[0.9]">
-                                READY TO ARCHITECT THE IMPOSSIBLE?
-                            </h2>
-                        </div>
-
-                        <Link href="/contact" className="group flex items-center gap-6 text-xl text-white font-mono uppercase tracking-widest hover:text-white transition-colors">
-                            <span className="border-b border-white/30 pb-2 group-hover:border-white transition-all duration-300">Start System Deployment</span>
-                            <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
-                                <ArrowUpRight className="w-4 h-4" />
-                            </div>
-                        </Link>
-                    </div>
-                </div>
 
                 {/* 2. Navigation Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">

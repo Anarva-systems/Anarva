@@ -57,7 +57,7 @@ export default function Navbar() {
         <>
             <header
                 className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 border-b border-white/5 
-                ${scrolled || isMenuOpen ? "bg-black/90 backdrop-blur-md py-4" : "bg-transparent py-6"}`}
+                ${scrolled || isMenuOpen ? "bg-black/95 backdrop-blur-md py-4" : "bg-black/20 backdrop-blur-sm py-6"}`}
             >
                 <div className="px-6 md:px-12 flex items-center justify-between max-w-[1400px] mx-auto">
                     {/* Logo - Left */}
@@ -74,8 +74,8 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    {/* Desktop Menu - Technical Bar */}
-                    <nav className="hidden md:flex items-center gap-8">
+                    {/* Desktop Menu - High Breakpoint for Tablet Clutter */}
+                    <nav className="hidden lg:flex items-center gap-10">
                         {navLinks.map((link) => {
                             const isActive = pathname === link.href;
                             return (
@@ -103,14 +103,14 @@ export default function Navbar() {
                     <div className="flex items-center gap-6 z-50">
                         <Link
                             href="/contact"
-                            className="hidden md:flex items-center justify-center border border-white/20 px-6 py-2 text-[10px] font-mono uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300"
+                            className="hidden lg:flex items-center justify-center border border-white/20 px-6 py-2 text-[10px] font-mono uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300"
                         >
                             Initialize Project
                         </Link>
 
-                        {/* Mobile Menu Toggle */}
+                        {/* Mobile Menu Toggle - Shows on MD and LG */}
                         <button
-                            className="md:hidden text-white z-60"
+                            className="lg:hidden text-white z-60"
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
                             {isMenuOpen ? <X /> : (
