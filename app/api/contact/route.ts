@@ -46,19 +46,17 @@ export async function POST(req: Request) {
                         <p style="margin: 8px 0;"><strong>Name:</strong> ${name}</p>
                         <p style="margin: 8px 0;"><strong>Email:</strong> ${email}</p>
                         <p style="margin: 8px 0;"><strong>Phone:</strong> ${phone || 'N/A'}</p>
-                        <p style="margin: 8px 0;"><strong>Location:</strong> ${location || 'N/A'}</p>
-                        <p style="margin: 8px 0;"><strong>Languages Known:</strong> ${languages || 'N/A'}</p>
                         <p style="margin: 8px 0;"><strong>Company:</strong> ${company || 'N/A'}</p>
                     </div>
 
                     <div style="margin-bottom: 20px;">
                         <p><strong>Project Type:</strong> <span style="background-color: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; font-size: 14px;">${projectType}</span></p>
-                        <p><strong>Budget:</strong> <span style="background-color: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 4px; font-size: 14px;">${budget}</span></p>
+                        <p><strong>Budget:</strong> <span style="background-color: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 4px; font-size: 14px;">${budget || 'N/A'}</span></p>
                     </div>
 
                     <div style="border-top: 1px solid #e2e8f0; paddingTop: 20px;">
-                        <h3 style="color: #475569; font-size: 16px;">Project Vision:</h3>
-                        <p style="color: #334155; line-height: 1.6;">${details}</p>
+                        <h3 style="color: #475569; font-size: 16px;">Project Vision & Details:</h3>
+                        <p style="color: #334155; line-height: 1.6; white-space: pre-wrap;">${details}</p>
                     </div>
                 </div>
             `,

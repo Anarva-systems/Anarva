@@ -18,8 +18,8 @@ const PROJECTS = [
         url: "https://aurum-restaurants.vercel.app/"
     },
     {
-        title: "GYMFLOW — FITNESS",
-        category: "FITNESS APP",
+        title: "SAAS BOOKING PLATFORM FOR FITNESS CHAINS",
+        category: "SCALABLE TO 10K USERS",
         video: "/Work/gymflow.mp4",
         thumbnail: "/images/gymflow.png",
         id: "02",

@@ -183,53 +183,53 @@
         },
         {
             "id": 8,
-            "title": "WikiQuiz - Wikipedia Quiz",
-            "label": "EDTECH + AI",
+            "title": "AI-Powered Knowledge Retrieval System (RAG Pipeline)",
+            "label": "KNOWLEDGE + AI",
             "color": "from-green-600",
             "bg": "/Work/WikiQuiz.mp4",
             "thumbnail": "/images/WikiQuiz.png",
             "year": "2025",
             "role": "Full-Stack Development",
-            "description": "An intelligent quiz generation platform that transforms any Wikipedia article into engaging, adaptive quizzes using AI, making knowledge testing fun and personalized.",
+            "description": "An intelligent knowledge retrieval platform that transforms unstructured content into precise, citation-backed answers using a custom RAG pipeline.",
             "techStack": [
                 "Next.js",
                 "Python",
                 "NVIDIA NIM",
-                "Tailwind CSS",
-                "Vercel"
+                "Vector Database",
+                "LangChain"
             ],
             "features": [
-                "AI-powered quiz generation",
-                "Adaptive difficulty scaling",
-                "Performance analytics dashboard",
-                "Multi-topic quiz history"
+                "Semantic search & retrieval",
+                "Citation-backed responses",
+                "Real-time context chunking",
+                "Adaptive query expansion"
             ],
             "gradient": "from-rose-500 via-pink-400 to-fuchsia-400"
         },
         {
             "id": 9,
-            "title": "GymFlow - Fitness App",
-            "label": "FITNESS + AI",
+            "title": "SaaS Booking Platform for Fitness Chains (Scalable to 10k Users)",
+            "label": "SAAS + FITNESS",
             "color": "from-orange-600",
             "bg": "/Work/gymflow.mp4",
             "thumbnail": "/images/gymflow.png",
             "url": "https://gymflow-swart.vercel.app/",
             "year": "2025",
             "role": "Full-Stack Development",
-            "description": "A smart fitness application that uses AI to generate personalized workout plans, track progress in real-time, and adapt training intensity based on performance data.",
+            "description": "A highly scalable SaaS booking and management platform designed for fitness chains, supporting up to 10k concurrent users with real-time slot scheduling and automated notifications.",
             "techStack": [
                 "React Native",
                 "Next.js",
                 "Python",
                 "FastAPI",
                 "PostgreSQL",
-                "TensorFlow"
+                "Expo"
             ],
             "features": [
-                "AI-generated personalized workout plans",
-                "Real-time performance tracking",
-                "Adaptive intensity calibration",
-                "Progress analytics dashboard"
+                "High-concurrency booking engine",
+                "Real-time slot scheduling",
+                "Automated push notifications",
+                "Multi-location chain management"
             ],
             "gradient": "from-orange-500 via-amber-400 to-yellow-400"
         },

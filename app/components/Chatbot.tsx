@@ -66,6 +66,7 @@ function pickRandom(arr: string[]): string {
 }
 
 export default function Chatbot() {
+    const [mounted, setMounted] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
     const [inputValue, setInputValue] = useState("");
@@ -73,6 +74,10 @@ export default function Chatbot() {
     const [leadState, setLeadState] = useState<LeadState>({ active: false, step: "name" });
     const [hasGreeted, setHasGreeted] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     // Auto-scroll to bottom
     useEffect(() => {
@@ -313,6 +318,8 @@ export default function Chatbot() {
             </div>
         );
     };
+
+    if (!mounted) return null;
 
     return (
         <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[100] flex flex-col items-end pointer-events-none">

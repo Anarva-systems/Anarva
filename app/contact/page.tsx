@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CheckCircle2, ArrowRight, Monitor, Smartphone, Code2, Command, Shield, LayoutTemplate } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -11,13 +11,19 @@ const PROJECT_TYPES = [
     { id: "custom", label: "Custom Dev", icon: Code2, desc: "API & Backend" },
 ];
 
-const BUDGET_RANGES = ["$0 - $5k", "$5k - $10k", "$10k - $25k", "$25k - $50k", "$50k+", "Undisclosed"];
+const BUDGET_RANGES = ["$1k - $5k", "$5k - $10k", "$10k - $25k", "$25k+", "Other"];
 
 export default function SubmitRequirementsLight() {
-    const [formData, setFormData] = useState({ name: "", email: "", company: "", phone: "", location: "", languages: "", details: "" });
+    const [mounted, setMounted] = useState(false);
+    const [formData, setFormData] = useState({ name: "", email: "", company: "", phone: "", details: "" });
     const [selectedType, setSelectedType] = useState(PROJECT_TYPES[0].id);
     const [selectedBudget, setSelectedBudget] = useState(BUDGET_RANGES[0]);
+    const [customBudget, setCustomBudget] = useState("");
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,10 +35,7 @@ export default function SubmitRequirementsLight() {
         const payload = {
             ...formData,
             projectType: PROJECT_TYPES.find(t => t.id === selectedType)?.label || selectedType,
-            budget: selectedBudget,
-            phone: formData.phone,
-            location: formData.location,
-            languages: formData.languages,
+            budget: selectedBudget === "Other" ? (customBudget || "Other") : selectedBudget,
         };
 
         try {
@@ -44,7 +47,9 @@ export default function SubmitRequirementsLight() {
 
             if (res.ok) {
                 setStatus("success");
-                setFormData({ name: "", email: "", company: "", phone: "", location: "", languages: "", details: "" });
+                setFormData({ name: "", email: "", company: "", phone: "", details: "" });
+                setSelectedBudget(BUDGET_RANGES[0]);
+                setCustomBudget("");
                 // Reset after 3 seconds
                 setTimeout(() => setStatus("idle"), 3000);
             } else {
@@ -55,6 +60,28 @@ export default function SubmitRequirementsLight() {
             setStatus("error");
         }
     };
+
+    if (!mounted) {
+        return (
+            <main className="min-h-screen bg-black pt-24 md:pt-32 pb-20 px-6 text-white selection:bg-[#00e6ff] selection:text-black">
+                <div className="container mx-auto max-w-6xl relative z-10">
+                    <div className="mb-20">
+                        <div className="flex items-center gap-2 mb-4 text-zinc-500 font-mono text-[10px] uppercase tracking-[0.3em]">
+                            <Command className="w-3 h-3" /> Initialization / Phase 01
+                        </div>
+                        <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 leading-[0.85]">
+                            Build the <span className="text-zinc-500 italic">future</span> <br /> with us.
+                        </h1>
+                    </div>
+                    <div className="h-96 flex items-center justify-center">
+                        <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest animate-pulse">
+                            Loading Interface...
+                        </div>
+                    </div>
+                </div>
+            </main>
+        );
+    }
 
     return (
         <main className="min-h-screen bg-black pt-24 md:pt-32 pb-20 px-6 text-white selection:bg-[#00e6ff] selection:text-black">
@@ -106,7 +133,7 @@ export default function SubmitRequirementsLight() {
                             <h2 className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] mb-10 flex items-center gap-4">
                                 02 <span className="h-[1px] w-12 bg-white/10" /> Investment Scope
                             </h2>
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-2 items-end">
                                 {BUDGET_RANGES.map((range) => (
                                     <button
                                         key={range}
@@ -120,9 +147,34 @@ export default function SubmitRequirementsLight() {
                                     </button>
                                 ))}
                             </div>
+
+                            <AnimatePresence>
+                                {selectedBudget === "Other" && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                                        animate={{ opacity: 1, height: "auto", marginTop: 24 }}
+                                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                                        className="relative overflow-hidden max-w-xs pt-6"
+                                    >
+                                        <div className="relative">
+                                            <label className="text-[9px] font-black text-zinc-500 uppercase tracking-[0.2em] absolute -top-6">
+                                                Your Custom Budget ($)
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="customBudget"
+                                                value={customBudget}
+                                                onChange={(e) => setCustomBudget(e.target.value)}
+                                                placeholder="e.g. $1,500"
+                                                className="w-full bg-transparent border-b border-white/10 py-2 text-base font-medium focus:outline-none focus:border-white transition-all placeholder:text-white/10 text-white"
+                                            />
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                         </section>
 
-                        {/* 03. Identity Details */}
+                        {/* 03. Identity Details & Specifications */}
                         <section className="space-y-16">
                             <h2 className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] mb-10 flex items-center gap-4">
                                 03 <span className="h-[1px] w-12 bg-white/10" /> Specifications
@@ -155,7 +207,7 @@ export default function SubmitRequirementsLight() {
                                         className="w-full bg-transparent border-b border-white/10 py-4 text-xl font-medium focus:outline-none focus:border-white transition-all placeholder:text-white/10 text-white"
                                     />
                                 </div>
-                                <div className="group relative md:col-span-2">
+                                <div className="group relative">
                                     <label className="text-[9px] font-black text-zinc-500 uppercase tracking-[0.2em] absolute -top-6">
                                         Company / Organization
                                     </label>
@@ -181,45 +233,19 @@ export default function SubmitRequirementsLight() {
                                         className="w-full bg-transparent border-b border-white/10 py-4 text-xl font-medium focus:outline-none focus:border-white transition-all placeholder:text-white/10 text-white"
                                     />
                                 </div>
-                                <div className="group relative">
-                                    <label className="text-[9px] font-black text-zinc-500 uppercase tracking-[0.2em] absolute -top-6">
-                                        Live Location / City
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="location"
-                                        value={formData.location}
-                                        onChange={handleChange}
-                                        placeholder="e.g. Hyderabad, India"
-                                        className="w-full bg-transparent border-b border-white/10 py-4 text-xl font-medium focus:outline-none focus:border-white transition-all placeholder:text-white/10 text-white"
-                                    />
-                                </div>
-                                <div className="group relative md:col-span-2">
-                                    <label className="text-[9px] font-black text-zinc-500 uppercase tracking-[0.2em] absolute -top-6">
-                                        Languages Known
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="languages"
-                                        value={formData.languages}
-                                        onChange={handleChange}
-                                        placeholder="e.g. English, Hindi, Telugu"
-                                        className="w-full bg-transparent border-b border-white/10 py-4 text-xl font-medium focus:outline-none focus:border-white transition-all placeholder:text-white/10 text-white"
-                                    />
-                                </div>
                             </div>
 
                             <div className="relative pt-4">
                                 <label className="text-[9px] font-black text-zinc-500 uppercase tracking-[0.2em] absolute -top-2">
-                                    Tell us about the project vision
+                                    What are you building?
                                 </label>
                                 <textarea
-                                    rows={2}
+                                    rows={3}
                                     name="details"
                                     value={formData.details}
                                     onChange={handleChange}
                                     className="w-full bg-transparent border-b border-white/10 py-4 text-xl font-medium focus:outline-none focus:border-white transition-all placeholder:text-white/10 text-white resize-none"
-                                    placeholder="High-level goals and features..."
+                                    placeholder="Tell us about the project vision, high-level goals, features, and target budget..."
                                 />
                             </div>
                         </section>

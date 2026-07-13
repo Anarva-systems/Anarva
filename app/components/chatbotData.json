@@ -282,7 +282,7 @@
             "examples"
         ],
         "responses": [
-            "Here are some of our **featured projects**:\n\n🔹 **VendorSync** — AI-powered vendor management platform with predictive analytics\n🔹 **CodeViz** — Interactive code visualization platform for programming education\n🔹 **Alzheimer Early Detection** — Deep learning MRI analysis with 94% accuracy\n🔹 **Deriverse Trading Analytics** — Real-time trading dashboard with AI signals\n🔹 **Refino** — AI prompt engineering & generation tool\n🔹 **CyberSentinel.AI** — Real-time cybersecurity threat detection platform\n🔹 **Secure Q&A** — RAG-based enterprise knowledge assistant\n🔹 **WikiQuiz** — AI-powered quiz generation from Wikipedia\n\nWant to know more about a specific project? Just ask!"
+            "Here are some of our **featured projects**:\n\n🔹 **VendorSync** — AI-powered vendor management platform with predictive analytics\n🔹 **CodeViz** — Interactive code visualization platform for programming education\n🔹 **Alzheimer Early Detection** — Deep learning MRI analysis with 94% accuracy\n🔹 **Deriverse Trading Analytics** — Real-time trading dashboard with AI signals\n🔹 **Refino** — AI prompt engineering & generation tool\n🔹 **CyberSentinel.AI** — Real-time cybersecurity threat detection platform\n🔹 **Secure Q&A** — RAG-based enterprise knowledge assistant\n🔹 **Knowledge Retrieval System** — AI-powered knowledge retrieval system (RAG Pipeline)\n\nWant to know more about a specific project? Just ask!"
         ],
         "options": [
             "VendorSync",
@@ -404,14 +404,15 @@
             "Our AI Services"
         ]
     },
-    "project_wikiquiz": {
+    "project_rag_pipeline": {
         "keywords": [
-            "wikiquiz",
-            "wiki quiz",
-            "wikipedia quiz"
+            "rag pipeline",
+            "knowledge retrieval",
+            "ai-powered knowledge retrieval",
+            "wikiquiz"
         ],
         "responses": [
-            "🔹 **WikiQuiz — Wikipedia Quiz** (2025)\n\nAn intelligent quiz generation platform that transforms any Wikipedia article into engaging, adaptive quizzes.\n\n**Key Features:**\n• AI-powered quiz generation\n• Adaptive difficulty scaling\n• Performance analytics dashboard\n• Multi-topic quiz history\n\n**Tech:** Next.js, Python, NVIDIA NIM, Tailwind CSS, Vercel"
+            "🔹 **AI-Powered Knowledge Retrieval System (RAG Pipeline)** (2025)\n\nAn intelligent knowledge retrieval platform that transforms unstructured content into precise, citation-backed answers using a custom RAG pipeline.\n\n**Key Features:**\n• Semantic search & retrieval\n• Citation-backed responses\n• Real-time context chunking\n• Adaptive query expansion\n\n**Tech:** Next.js, Python, NVIDIA NIM, Vector Database, LangChain"
         ],
         "options": [
             "View All Projects",
@@ -606,7 +607,7 @@
             "ai portfolio"
         ],
         "responses": [
-            "Here are our **AI-powered projects**:\n\n🧠 **VendorSync** — AI vendor matching & predictive analytics\n🧠 **Alzheimer Early Detection** — Deep learning MRI analysis (94% accuracy)\n🧠 **Refino** — AI prompt engineering tool\n🧠 **CyberSentinel.AI** — Real-time threat detection\n🧠 **Secure Q&A** — RAG-based document Q&A\n🧠 **WikiQuiz** — AI-powered quiz generation\n\nWant details on any specific project?"
+            "Here are our **AI-powered projects**:\n\n🧠 **VendorSync** — AI vendor matching & predictive analytics\n🧠 **Alzheimer Early Detection** — Deep learning MRI analysis (94% accuracy)\n🧠 **Refino** — AI prompt engineering tool\n🧠 **CyberSentinel.AI** — Real-time threat detection\n🧠 **Secure Q&A** — RAG-based document Q&A\n🧠 **Knowledge Retrieval System** — AI-powered knowledge retrieval system (RAG Pipeline)\n\nWant details on any specific project?"
         ],
         "options": [
             "VendorSync",

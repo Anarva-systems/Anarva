@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   title: {
-    default: "ANARVA | Premium Web Agency & App Development Studio",
-    template: "%s | ANARVA",
+    default: "Anarva Systems | Enterprise AI & Web3 Solutions",
+    template: "%s | Anarva Systems",
   },
   description: "ANARVA is a premium Web Agency and App Development Studio providing UI/UX design, AI infrastructure, RAG pipelines, full-stack development, and Web3 engineering.",
   keywords: [
@@ -61,8 +61,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://www.anarva.online",
-    siteName: "ANARVA | Web Agency & App Development Studio",
-    title: "ANARVA | Premium Web Agency & App Development Studio",
+    siteName: "Anarva Systems | Enterprise AI & Web3 Solutions",
+    title: "Anarva Systems | Enterprise AI & Web3 Solutions",
     description: "High-end UI/UX, AI systems, Full-Stack Engineering & Web3 Development.",
     images: [{
       url: "/og-image-home.png",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ANARVA | Premium Web Agency & App Development Studio",
+    title: "Anarva Systems | Enterprise AI & Web3 Solutions",
     description: "High-end UI/UX, AI systems, Full-Stack Engineering & Web3 Development.",
     images: ["/og-image-home.png"],
   },
@@ -89,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`
           ${inter.variable} 
