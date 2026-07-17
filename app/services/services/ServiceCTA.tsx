@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export function ServiceCTA() {
@@ -13,7 +12,7 @@ export function ServiceCTA() {
                     Ready to <br /> Build?
                 </h2>
                 <p className="text-zinc-400 text-xl max-w-xl mx-auto mb-12 font-light">
-                    Let's turn your vision into a digital reality. Schedule a free discovery call with our product architects today.
+                    Let&apos;s turn your vision into a digital reality. Schedule a free discovery call with our product architects today.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -25,7 +24,7 @@ export function ServiceCTA() {
                         <ArrowRight className="w-4 h-4" />
                     </Link>
                     <a
-                        href="mailto:anarvasystems2026@gmail.com"
+                        href="mailto:hello@anarva.online"
                         className="px-8 py-4 bg-transparent text-white font-medium rounded-full hover:bg-white/10 transition-colors flex items-center justify-center gap-3 border border-white/20 w-fit"
                     >
                         Say Hello
