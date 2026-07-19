@@ -23,19 +23,31 @@ export async function POST(req: Request) {
             );
         }
 
-        // Configure Transporter (Gmail)
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
+        // Configure Transporter (supports Custom SMTP like Hostinger or defaults to Gmail)
+        const transporterConfig: any = {
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
             },
-        });
+        };
+
+        if (process.env.EMAIL_HOST) {
+            transporterConfig.host = process.env.EMAIL_HOST;
+            transporterConfig.port = parseInt(process.env.EMAIL_PORT || '465', 10);
+            transporterConfig.secure = process.env.EMAIL_SECURE !== 'false';
+            transporterConfig.tls = {
+                rejectUnauthorized: false
+            };
+        } else {
+            transporterConfig.service = 'gmail';
+        }
+
+        const transporter = nodemailer.createTransport(transporterConfig);
 
         // Email Draft
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER, // Send validation copy to self/owner
+            to: process.env.EMAIL_TO || process.env.EMAIL_USER,
             replyTo: email,
             subject: `[ANARVA] New Lead: ${name}`,
             html: `
