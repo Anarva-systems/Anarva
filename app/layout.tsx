@@ -3,8 +3,7 @@ import { Inter, JetBrains_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import Chatbot from "./components/Chatbot";
-import EasterEggManager from "./components/layout/EasterEggManager";
+import ClientOverlays from "./components/layout/ClientOverlays";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -130,14 +129,13 @@ export default function RootLayout({
         {/* Navigation */}
         <Navbar />
 
-        {/* Triple Click Modal Manager */}
-        <EasterEggManager />
+        {/* Client-side Overlays (Easter Egg Manager & Chatbot) */}
+        <ClientOverlays />
 
         {/* Main content */}
         <div className="flex-1 relative">
           {children}
           <Footer />
-          <Chatbot />
         </div>
       </body>
     </html>
