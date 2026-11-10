@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -45,15 +45,15 @@ const CLIENT_LOGOS = [
 /* =============================================
    ANIMATION VARIANTS
    ============================================= */
-const fadeUp = {
+const fadeUp: Variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: (delay: number) => ({
+    visible: (delay: number = 0) => ({
         opacity: 1,
         y: 0,
         transition: {
             duration: 0.7,
             delay,
-            ease: [0.22, 1, 0.36, 1],
+            ease: [0.22, 1, 0.36, 1] as const,
         },
     }),
 };

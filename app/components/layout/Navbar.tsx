@@ -131,7 +131,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, y: "-100%" }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: "-100%" }}
-                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
                         className="fixed inset-0 z-[90] bg-black text-white flex flex-col pt-32 px-8 overflow-hidden md:hidden"
                     >
                         {/* Grid Texture */}

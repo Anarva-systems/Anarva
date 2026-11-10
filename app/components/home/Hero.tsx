@@ -18,7 +18,7 @@ const fadeUp: Variants = {
     visible: (delay: number = 0) => ({
         opacity: 1,
         y: 0,
-        transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+        transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as const },
     }),
 };
 
@@ -80,7 +80,7 @@ export default function Hero() {
                                             initial={{ y: "110%", opacity: 0 }}
                                             animate={{ y: "0%", opacity: 1 }}
                                             exit={{ y: "-110%", opacity: 0 }}
-                                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
                                         >
                                             {CYCLING_WORDS[wordIndex]}
                                         </motion.span>
