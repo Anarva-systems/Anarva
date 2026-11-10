@@ -1,93 +1,158 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-
-// Dynamically import 3D Scene on client side only (ssr: false)
-const Scene3D = dynamic(() => import("./Scene3D"), {
-    ssr: false,
-    loading: () => (
-        <div className="w-full h-full flex items-center justify-center text-zinc-600 font-mono text-[10px] uppercase tracking-widest">
-            Loading 3D System...
-        </div>
-    ),
-});
+import { ArrowRight } from "lucide-react";
 
 /* =============================================
-   MAIN HERO
+   CYCLING WORDS for "Designed to Mean ___"
+   ============================================= */
+const CYCLING_WORDS = ["more.", "everything.", "impact.", "growth.", "momentum."];
+
+/* =============================================
+   ANIMATION VARIANTS
+   ============================================= */
+const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (delay: number = 0) => ({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+    }),
+};
+
+/* =============================================
+   HERO COMPONENT
    ============================================= */
 export default function Hero() {
-    const { scrollY } = useScroll();
+    const [wordIndex, setWordIndex] = useState(0);
 
-    // Layered Parallax Offsets
-    const yHeadline = useTransform(scrollY, [0, 500], [0, -100]);
-    const ySubtext = useTransform(scrollY, [0, 500], [0, -50]);
-    const yScene = useTransform(scrollY, [0, 500], [0, 50]);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setWordIndex((prev) => (prev + 1) % CYCLING_WORDS.length);
+        }, 2000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
-        <section className="relative min-h-screen flex flex-col justify-center text-white px-6 md:px-12 lg:px-20 py-24 overflow-hidden"
-            style={{
-                background: "radial-gradient(circle at 50% 50%, #0a0a0f 0%, #030303 100%)"
-            }}
-        >
-            <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center z-10">
-
-                {/* Left Content - Text & Stats */}
-                <motion.div
-                    className="flex flex-col gap-10 lg:gap-12"
-                    style={{ y: yHeadline }}
+        <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#0a0a0f] px-6 md:px-12 lg:px-16 pt-28 pb-16">
+            {/* ── Background Video Layer (Hero.mp4) ── */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="w-full h-full object-cover"
                 >
-                    <div className="flex flex-col">
-                        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9] text-white uppercase mb-4">
-                            WE HELP <br />
-                            <span className="text-zinc-500">Businesses</span> <br />
-                            <span className="text-white">TO GROW.</span>
-                        </h1>
-                        <p className="text-lg md:text-xl lg:text-2xl text-zinc-400 font-medium max-w-lg leading-relaxed mb-8">
-                            Convert more visitors into users, leads, or booked calls—with zero fluff.
-                        </p>
+                    <source src="/Hero.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 z-[1] bg-black/50" />
+            </div>
 
-                        <div className="flex flex-wrap items-center gap-6">
-                            <Link href="/contact" className="px-8 py-4 bg-white text-black text-lg lg:text-xl font-black flex items-center gap-3 transition-all hover:bg-zinc-200 active:scale-95 group shadow-[6px_6px_0px_rgba(255,255,255,0.1)] hover:shadow-none">
-                                Book a call <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            {/* ── Main Content Container ── */}
+            <div className="relative z-10 max-w-[1400px] mx-auto w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+                    {/* ── LEFT COLUMN: Title, Description, Two CTAs ── */}
+                    <div className="lg:col-span-8 flex flex-col gap-6">
+
+                        {/* Hero Section Title */}
+                        <motion.h1
+                            className="flex flex-col text-[clamp(2.5rem,6vw,5.2rem)] leading-[1.02] tracking-tight"
+                            variants={fadeUp}
+                            initial="hidden"
+                            animate="visible"
+                            custom={0.1}
+                        >
+                            <span className="font-light text-white/90">
+                                Designed to
+                            </span>
+                            <span className="font-black flex flex-wrap items-baseline gap-x-3.5">
+                                <span className="text-white">Mean</span>
+                                <span className="relative inline-flex items-baseline overflow-hidden py-1 align-baseline">
+                                    <AnimatePresence mode="wait">
+                                        <motion.span
+                                            key={wordIndex}
+                                            className="inline-block whitespace-nowrap font-black text-zinc-400"
+                                            initial={{ y: "110%", opacity: 0 }}
+                                            animate={{ y: "0%", opacity: 1 }}
+                                            exit={{ y: "-110%", opacity: 0 }}
+                                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                                        >
+                                            {CYCLING_WORDS[wordIndex]}
+                                        </motion.span>
+                                    </AnimatePresence>
+                                </span>
+                            </span>
+                        </motion.h1>
+
+                        {/* Description */}
+                        <motion.p
+                            className="text-sm md:text-base text-zinc-300/80 font-light leading-relaxed max-w-lg"
+                            variants={fadeUp}
+                            initial="hidden"
+                            animate="visible"
+                            custom={0.2}
+                        >
+                            Built for designers, agencies, and creatives who want to showcase
+                            their best work, make a strong first impression, and create real
+                            impact without bloated workflows.
+                        </motion.p>
+
+                        {/* Two CTAs */}
+                        <motion.div
+                            className="flex flex-wrap items-center gap-4 pt-2"
+                            variants={fadeUp}
+                            initial="hidden"
+                            animate="visible"
+                            custom={0.3}
+                        >
+                            <Link
+                                href="/contact"
+                                className="px-7 py-3.5 bg-white text-black text-sm md:text-base font-bold flex items-center gap-2.5 transition-all hover:bg-zinc-200 active:scale-95 group shadow-[4px_4px_0px_rgba(255,255,255,0.15)] hover:shadow-none"
+                            >
+                                <span>Book a call</span>
+                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
-                            <Link href="/work" className="text-lg lg:text-xl font-black text-zinc-400 hover:text-white transition-colors border-b-2 border-transparent hover:border-white py-1">
+                            <Link
+                                href="/work"
+                                className="px-7 py-3.5 border border-white/20 text-white hover:border-white text-sm md:text-base font-medium transition-all hover:bg-white/[0.05] active:scale-95"
+                            >
                                 View Work
                             </Link>
-                        </div>
+                        </motion.div>
                     </div>
 
-                    {/* Stats List */}
+                    {/* ── RIGHT COLUMN: EST. 2025 Box ── */}
                     <motion.div
-                        className="flex gap-10 md:gap-16 mt-8 pt-8 border-t border-white/5 w-full max-w-md"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.5, duration: 1 }}
-                        style={{ y: ySubtext }}
+                        className="lg:col-span-4 flex lg:justify-end items-center"
+                        variants={fadeUp}
+                        initial="hidden"
+                        animate="visible"
+                        custom={0.25}
                     >
-                        <div className="flex flex-col">
-                            <div className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-1">97+</div>
-                            <div className="text-[9px] md:text-[10px] font-bold text-zinc-600 uppercase tracking-[0.2em]">Designs delivered</div>
-                        </div>
-                        <div className="flex flex-col">
-                            <div className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-1">99%</div>
-                            <div className="text-[9px] md:text-[10px] font-bold text-zinc-600 uppercase tracking-[0.2em]">Client satisfaction</div>
+                        <div className="flex items-stretch border border-white/12 w-full max-w-xs bg-white/[0.02] backdrop-blur-sm">
+                            <div className="flex flex-col items-center justify-center gap-1 px-5 py-3.5 border-r border-white/12">
+                                <svg className="w-5 h-5 text-zinc-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z" />
+                                </svg>
+                                <span className="text-white text-[10px] font-bold tracking-wider">EST. 2025</span>
+                            </div>
+                            <div className="flex items-center px-4 py-3.5">
+                                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 leading-relaxed">
+                                    5+ Years shaping
+                                    <br />
+                                    digital direction.
+                                </span>
+                            </div>
                         </div>
                     </motion.div>
-                </motion.div>
 
-                {/* Right Content - 3D Scene */}
-                <motion.div
-                    className="relative w-full h-[400px] md:h-[600px] lg:h-[700px]"
-                    initial={{ opacity: 0, scale: 0.85 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.2, duration: 1.5 }}
-                    style={{ y: yScene }}
-                >
-                    <Scene3D />
-                </motion.div>
+                </div>
             </div>
         </section>
     );
